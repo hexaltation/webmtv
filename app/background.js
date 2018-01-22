@@ -85,71 +85,72 @@ module.exports = {"name":"development","description":"Add here any environment s
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-var _path = _interopRequireDefault(__webpack_require__(6));
-
-var _url = _interopRequireDefault(__webpack_require__(7));
-
-var _electron = __webpack_require__(2);
-
-var _dev_menu_template = __webpack_require__(8);
-
-var _edit_menu_template = __webpack_require__(9);
-
-var _window = _interopRequireDefault(__webpack_require__(10));
-
-var _env = _interopRequireDefault(__webpack_require__(4));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_path__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_url___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_url__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_electron__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__menu_dev_menu_template__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_edit_menu_template__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helpers_window__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_env__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_env___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_env__);
 // This is main process of Electron, started as first thing when your
 // app starts. It runs through entire life of your application.
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 global.mainWindow = null;
 
-const setApplicationMenu = () => {
-  const menus = [_edit_menu_template.editMenuTemplate];
 
-  if (_env.default.name !== "production") {
-    menus.push(_dev_menu_template.devMenuTemplate);
+
+
+
+ // Special module holding environment variables which you declared
+// in config/env_xxx.json file.
+
+
+
+const setApplicationMenu = () => {
+  const menus = [__WEBPACK_IMPORTED_MODULE_4__menu_edit_menu_template__["a" /* editMenuTemplate */]];
+
+  if (__WEBPACK_IMPORTED_MODULE_6_env___default.a.name !== "production") {
+    menus.push(__WEBPACK_IMPORTED_MODULE_3__menu_dev_menu_template__["a" /* devMenuTemplate */]);
   }
 
-  _electron.Menu.setApplicationMenu(_electron.Menu.buildFromTemplate(menus));
+  __WEBPACK_IMPORTED_MODULE_2_electron__["Menu"].setApplicationMenu(__WEBPACK_IMPORTED_MODULE_2_electron__["Menu"].buildFromTemplate(menus));
 }; // Save userData in separate folders for each environment.
 // Thanks to this you can use production and development versions of the app
 // on same machine like those are two separate apps.
 
 
-if (_env.default.name !== "production") {
-  const userDataPath = _electron.app.getPath("userData");
-
-  _electron.app.setPath("userData", `${userDataPath} (${_env.default.name})`);
+if (__WEBPACK_IMPORTED_MODULE_6_env___default.a.name !== "production") {
+  const userDataPath = __WEBPACK_IMPORTED_MODULE_2_electron__["app"].getPath("userData");
+  __WEBPACK_IMPORTED_MODULE_2_electron__["app"].setPath("userData", `${userDataPath} (${__WEBPACK_IMPORTED_MODULE_6_env___default.a.name})`);
 }
 
-_electron.app.on("ready", () => {
+__WEBPACK_IMPORTED_MODULE_2_electron__["app"].on("ready", () => {
   setApplicationMenu();
-  global.mainWindow = (0, _window.default)("main", {
+  global.mainWindow = Object(__WEBPACK_IMPORTED_MODULE_5__helpers_window__["a" /* default */])("main", {
     width: 1000,
     height: 600
   });
-  global.mainWindow.loadURL(_url.default.format({
-    pathname: _path.default.join(__dirname, "app.html"),
+  global.mainWindow.loadURL(__WEBPACK_IMPORTED_MODULE_1_url___default.a.format({
+    pathname: __WEBPACK_IMPORTED_MODULE_0_path___default.a.join(__dirname, "app.html"),
     protocol: "file:",
     slashes: true
   }));
 
-  if (_env.default.name === "development") {
+  if (__WEBPACK_IMPORTED_MODULE_6_env___default.a.name === "development") {
     global.mainWindow.openDevTools();
   }
 });
-
-_electron.app.on("window-all-closed", () => {
-  _electron.app.quit();
+__WEBPACK_IMPORTED_MODULE_2_electron__["app"].on("window-all-closed", () => {
+  __WEBPACK_IMPORTED_MODULE_2_electron__["app"].quit();
 });
 
 /***/ }),
@@ -166,17 +167,11 @@ module.exports = require("url");
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.devMenuTemplate = void 0;
-
-var _electron = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
 
 const devMenuTemplate = {
   label: "Development",
@@ -184,35 +179,30 @@ const devMenuTemplate = {
     label: "Reload",
     accelerator: "CmdOrCtrl+R",
     click: () => {
-      _electron.BrowserWindow.getFocusedWindow().webContents.reloadIgnoringCache();
+      __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"].getFocusedWindow().webContents.reloadIgnoringCache();
     }
   }, {
     label: "Toggle DevTools",
     accelerator: "Alt+CmdOrCtrl+I",
     click: () => {
-      _electron.BrowserWindow.getFocusedWindow().toggleDevTools();
+      __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"].getFocusedWindow().toggleDevTools();
     }
   }, {
     label: "Quit",
     accelerator: "CmdOrCtrl+Q",
     click: () => {
-      _electron.app.quit();
+      __WEBPACK_IMPORTED_MODULE_0_electron__["app"].quit();
     }
   }]
 };
-exports.devMenuTemplate = devMenuTemplate;
+/* harmony export (immutable) */ __webpack_exports__["a"] = devMenuTemplate;
+
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.editMenuTemplate = void 0;
 const editMenuTemplate = {
   label: "sites",
   submenu: [{
@@ -289,33 +279,26 @@ const editMenuTemplate = {
     }
   }]
 };
-exports.editMenuTemplate = editMenuTemplate;
+/* harmony export (immutable) */ __webpack_exports__["a"] = editMenuTemplate;
+
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _electron = __webpack_require__(2);
-
-var _fsJetpack = _interopRequireDefault(__webpack_require__(3));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs_jetpack__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs_jetpack___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs_jetpack__);
 // This helper remembers the size and position of your windows (and restores
 // them in that place after app relaunch).
 // Can be used for more than one window, just construct many
 // instances of it and give each different name.
-var _default = (name, options) => {
-  const userDataDir = _fsJetpack.default.cwd(_electron.app.getPath("userData"));
 
+
+/* harmony default export */ __webpack_exports__["a"] = ((name, options) => {
+  const userDataDir = __WEBPACK_IMPORTED_MODULE_1_fs_jetpack___default.a.cwd(__WEBPACK_IMPORTED_MODULE_0_electron__["app"].getPath("userData"));
   const stateStoreFile = `window-state-${name}.json`;
   const defaultSize = {
     width: options.width,
@@ -352,8 +335,7 @@ var _default = (name, options) => {
   };
 
   const resetToDefaults = () => {
-    const bounds = _electron.screen.getPrimaryDisplay().bounds;
-
+    const bounds = __WEBPACK_IMPORTED_MODULE_0_electron__["screen"].getPrimaryDisplay().bounds;
     return Object.assign({}, defaultSize, {
       x: (bounds.width - defaultSize.width) / 2,
       y: (bounds.height - defaultSize.height) / 2
@@ -361,7 +343,7 @@ var _default = (name, options) => {
   };
 
   const ensureVisibleOnSomeDisplay = windowState => {
-    const visible = _electron.screen.getAllDisplays().some(display => {
+    const visible = __WEBPACK_IMPORTED_MODULE_0_electron__["screen"].getAllDisplays().some(display => {
       return windowWithinBounds(windowState, display.bounds);
     });
 
@@ -385,12 +367,10 @@ var _default = (name, options) => {
   };
 
   state = ensureVisibleOnSomeDisplay(restore());
-  win = new _electron.BrowserWindow(Object.assign({}, options, state));
+  win = new __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"](Object.assign({}, options, state));
   win.on("close", saveState);
   return win;
-};
-
-exports.default = _default;
+});
 
 /***/ })
 /******/ ]);

@@ -17,7 +17,7 @@ console.log(index,d)
       for (let o of i.posts){
 
         if(o.ext===".webm"){
-          arr.push(o.tim+o.ext)
+          arr.push("http://i.4cdn.org/gif/"+o.tim+o.ext)
         }
       }
 

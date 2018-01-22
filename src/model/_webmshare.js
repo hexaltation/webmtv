@@ -28,7 +28,7 @@ idx++;
         if(idx===500){
           console.log(uniquepages)
           for(let u of uniquepages){
-            webms.push('//s1.webmshare.com'+u+'.webm')
+            webms.push('https://s1.webmshare.com'+u+'.webm')
           }
           cb(webms)
 

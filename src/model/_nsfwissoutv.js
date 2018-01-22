@@ -49,7 +49,7 @@ export default function(cb){
            if(uniqueNames.indexOf(i)=== -1){
              console.log(i.split('.webm')[1])
              if(i.split('.webm')[1]!=undefined){
-                   uniqueNames.push(i)
+                   uniqueNames.push("http://issoutv.com"+i)
              }
 
            }

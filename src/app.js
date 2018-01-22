@@ -9,7 +9,9 @@ import { remote , ipcRenderer} from "electron";
 import jetpack from "fs-jetpack";
 import env from "env";
 import request from 'request';
-import cheerio from 'cheerio';
+import os from 'os';
+import fs from 'fs';
+import mkdirp from 'mkdirp';
 import fill2chanplaylist from './model/_2chan';
 import fill4chanplaylist from './model/_4chan';
 import fillnsfw4chanplaylist from './model/_nsfw4chan';
@@ -19,6 +21,14 @@ import fillwebmlandplaylist from './model/_webmland';
 import fillwebmshareplaylist from './model/_webmshare';
 import fillwobmplaylist from './model/_wobm';
 import fillwebmxyzplaylist from './model/_webmxyz';
+
+if(!fs.existsSync(os.homedir()+'/Documents/webmtv/settings.json')){
+  mkdirp(os.homedir()+'/Documents/webmtv/', function(err) {
+if(!err){
+  fs.writeFileSync(os.homedir()+'/Documents/webmtv/settings.json', JSON.stringify([]));
+}
+});
+}
 
 let globalarray=[]
 let globalindex=0;
@@ -32,6 +42,27 @@ const qsa=(e)=>{
   return document.querySelectorAll(e)
 }
 
+function storesettings(data){
+  fs.writeFileSync(os.homedir()+'/Documents/webmtv/settings.json', JSON.stringify(data));
+}
+function getsettings(data){
+return JSON.parse(fs.readFileSync(os.homedir()+'/Documents/webmtv/settings.json', {encoding: "utf8"}))
+}
+
+
+
+function initcheckboxes(){
+
+
+console.log(getsettings())
+for(let o of getsettings()){
+  qs('#do'+o).checked=true;
+}
+
+
+}
+
+
 function whattoload(){
 
 let playlists=[]
@@ -41,7 +72,7 @@ if(qs('#do2chan').checked){
 if(qs('#do4chan').checked){
   playlists.push("4chan")
 }
-if(qs('#do4channsfw').checked){
+if(qs('#donsfw4chan').checked){
   playlists.push("nsfw4chan")
 }
 if(qs('#dowebmshare').checked){
@@ -51,46 +82,31 @@ if(qs('#dowobm').checked){
   playlists.push("wobm")
 }
 if(qs('#doissoutv').checked){
-  playlists.push("wobm")
+  playlists.push("issoutv")
 }
-if(qs('#doissoutvnsfw').checked){
+if(qs('#donsfwissoutv').checked){
   playlists.push("nsfwissoutv")
 }
+if(qs('#dowebmland').checked){
+  playlists.push("webmland")
+}
+storesettings(playlists)
+
+return playlists;
 }
 
 
 
 
-function getprefix(){
-  let prefix='';
-  switch(localStorage.getItem("current_site")){
-    case "issoutv":
-   prefix="http://issoutv.com"
-    break;
-    case "nsfwissoutv":
-   prefix="http://issoutv.com"
-    break;
-    case "2chan":
-prefix="http://may.2chan.net"
-    break;
-    case "4chan":
-prefix="http://i.4cdn.org/wsg/";
-    break;
-    case "nsfw4chan":
-prefix="http://i.4cdn.org/gif/";
-    break;
-    case "webmland":
-prefix="http://webm.land/media/";
-    break;
-    case "webmshare":
-prefix="https:";
-    break;
-  }
-  return prefix;
-}
+
 
 function play(){
+  if(!qs('video').paused){
+    qs('video').pause()
+  }
+  qs('#currentmedia').innerHTML=globalarray[globalindex]
 
+  qs('video').src=globalarray[globalindex]
   qs('video').addEventListener('error',(e,d)=>{
     console.log(e,d)
   //next()
@@ -122,141 +138,118 @@ function next(){
 
 
   globalindex++;
-  console.log(globalarray[globalindex])
+
   if(globalindex>=globalarray.length){
 globalindex=0
 
   }
-
-  qs('video').src=getprefix()+globalarray[globalindex]
 play()
+
+
 }
 function prev(webmsarrays,index){
   globalindex--;
+  if(globalindex<=0){
+globalindex=0
 
-  qs('video').src=getprefix()+globalarray[globalindex]
-  play()
+  }
+play()
+
 }
 
 
 let playlist=[]
 
-ipcRenderer.on('change_site' , function(event , data){
-  localStorage.setItem("current_site", data.site);
-switch(data.site){
 
-case "2chan":
-fill2chanplaylist((webmsarrays)=>{
 
+
+function loadsite(site){
+  switch(site){
+  case "2chan":
+  fill2chanplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays)
+  })
+  break;
+  case "wobm":
+  fillwobmplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays.reverse())
+  })
+  break;
+  case "webmxyz":
+  fillwebmxyzplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays)
+  })
+  break;
+  case "4chan":
+  fill4chanplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays)
+  })
+  break;
+  case "nsfw4chan":
+  fillnsfw4chanplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays)
+  })
+  break;
+  case "webmshare":
+  fillwebmshareplaylist((webmsarrays)=>{
+  globalarray.push(...webmsarrays)
+  })
+
+  break;
+  case "webmland":
+  fillwebmlandplaylist((webmsarrays)=>{
+
+  globalarray.push(...webmsarrays)
+
+})
+  break;
+  case "issoutv":
+  fillissouplaylist((webmsarrays)=>{
+    console.log(webmsarrays)
     globalindex=0;
-      globalarray=webmsarrays;
-  qs('video').src=getprefix()+globalarray[globalindex]
-  play()
+  globalarray.push(...webmsarrays)
+  })
+  break;
+  case "nsfwissoutv":
+  fillissounsfwplaylist((webmsarrays)=>{
+    console.log(webmsarrays)
+    //globalindex=0;
+  globalarray.push(...webmsarrays)
 
-})
-
-break;
-case "wobm":
-fillwobmplaylist((webmsarrays)=>{
-
-    globalindex=0;
-      globalarray=webmsarrays;
-  qs('video').src=getprefix()+globalarray[globalindex]
-  play()
-
-})
-
-break;
-case "webmxyz":
-fillwebmxyzplaylist((webmsarrays)=>{
-
-    globalindex=0;
-      globalarray=webmsarrays;
-  qs('video').src=getprefix()+globalarray[globalindex]
-  play()
-
-})
-
-break;
-case "4chan":
-fill4chanplaylist((webmsarrays)=>{
-
-    globalindex=0;
-      globalarray=webmsarrays;
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
-
-})
+  })
 
 
-break;
-case "nsfw4chan":
-fillnsfw4chanplaylist((webmsarrays)=>{
-  globalindex=0;
-    globalarray=webmsarrays;
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
+  break;
 
 
-})
-
-
-break;
-case "webmshare":
-fillwebmshareplaylist((webmsarrays)=>{
-
-    globalindex=0;
-      globalarray=webmsarrays;
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
-
-
-})
-
-break;
-case "webmland":
-fillwebmlandplaylist((webmsarrays)=>{
-  globalindex=0;
-    globalarray=webmsarrays;
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
-
-
-})
-
-break;
-case "issoutv":
-fillissouplaylist((webmsarrays)=>{
-  console.log(webmsarrays)
-  globalindex=0;
-globalarray=webmsarrays
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
-
-})
-
-
-break;
-case "nsfwissoutv":
-fillissounsfwplaylist((webmsarrays)=>{
-  console.log(webmsarrays)
-  globalindex=0;
-globalarray=webmsarrays
-    qs('video').src=getprefix()+globalarray[globalindex]
-    play()
-
-})
-
-
-break;
-
-
+  }
 }
 
 
- });
+
+function initplaylist(){
+
+for(let o of whattoload()){
+
+  loadsite(o)
+}
 
 
+ }
+
+for(let o of qsa('input[type=checkbox]')){
+  o.addEventListener('change',()=>{
+    console.log('changed')
+  console.log(whattoload())
+  //initcheckboxes()
+  })
+}
+  initcheckboxes()
+qs('#initplaylist').addEventListener('click',(e)=>{
+  globalindex=0;
+  initplaylist()
+  play()
+})
 
 
  document.addEventListener('keydown',(e)=>{
