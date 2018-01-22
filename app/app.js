@@ -115,6 +115,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_env___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_env__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_request__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_request__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_os__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_os__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_fs__ = __webpack_require__(18);
@@ -130,11 +131,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__model_webmshare__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__model_wobm__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__model_webmxyz__ = __webpack_require__(28);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_cheerio__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__model_2chan__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__model_4chan__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__model_nsfw4chan__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_nsfwissoutv__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__model_issoutv__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__model_webmland__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__model_webmshare__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__model_wobm__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__model_webmxyz__ = __webpack_require__(25);
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
  // ----------------------------------------------------------------------------
 // Everything below is just to show you how it works. You can delete all of it.
 // ----------------------------------------------------------------------------
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 
 
 
@@ -148,9 +168,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-
-
+<<<<<<< HEAD
 if (!__WEBPACK_IMPORTED_MODULE_6_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/settings.json')) {
   __WEBPACK_IMPORTED_MODULE_7_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/', function (err) {
     if (!err) {
@@ -159,6 +177,8 @@ if (!__WEBPACK_IMPORTED_MODULE_6_fs___default.a.existsSync(__WEBPACK_IMPORTED_MO
   });
 }
 
+=======
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 let globalarray = [];
 let globalindex = 0;
 const app = __WEBPACK_IMPORTED_MODULE_1_electron__["remote"].app;
@@ -278,53 +298,118 @@ function prev(webmsarrays, index) {
 }
 
 let playlist = [];
+<<<<<<< HEAD
 
 function loadsite(site) {
   switch (site) {
     case "2chan":
       Object(__WEBPACK_IMPORTED_MODULE_8__model_2chan__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+__WEBPACK_IMPORTED_MODULE_1_electron__["ipcRenderer"].on('change_site', function (event, data) {
+  localStorage.setItem("current_site", data.site);
+
+  switch (data.site) {
+    case "2chan":
+      Object(__WEBPACK_IMPORTED_MODULE_6__model_2chan__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "wobm":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_15__model_wobm__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays.reverse());
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_13__model_wobm__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "webmxyz":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_16__model_webmxyz__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_14__model_webmxyz__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "4chan":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_9__model_4chan__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_7__model_4chan__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "nsfw4chan":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_10__model_nsfw4chan__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_8__model_nsfw4chan__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "webmshare":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_14__model_webmshare__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_12__model_webmshare__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "webmland":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_13__model_webmland__["a" /* default */])(webmsarrays => {
         globalarray.push(...webmsarrays);
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_11__model_webmland__["a" /* default */])(webmsarrays => {
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
       });
       break;
 
     case "issoutv":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_12__model_issoutv__["a" /* default */])(webmsarrays => {
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_10__model_issoutv__["a" /* default */])(webmsarrays => {
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
         console.log(webmsarrays);
         globalindex = 0;
         globalarray.push(...webmsarrays);
@@ -332,6 +417,7 @@ function loadsite(site) {
       break;
 
     case "nsfwissoutv":
+<<<<<<< HEAD
       Object(__WEBPACK_IMPORTED_MODULE_11__model_nsfwissoutv__["a" /* default */])(webmsarrays => {
         console.log(webmsarrays); //globalindex=0;
 
@@ -359,6 +445,17 @@ qs('#initplaylist').addEventListener('click', e => {
   globalindex = 0;
   initplaylist();
   play();
+=======
+      Object(__WEBPACK_IMPORTED_MODULE_9__model_nsfwissoutv__["a" /* default */])(webmsarrays => {
+        console.log(webmsarrays);
+        globalindex = 0;
+        globalarray = webmsarrays;
+        qs('video').src = getprefix() + globalarray[globalindex];
+        play();
+      });
+      break;
+  }
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 });
 document.addEventListener('keydown', e => {
   console.log(e);
@@ -413,7 +510,11 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "*{\n  padding:0px;\n  margin:0px;\n}\n.main {\n\tdisplay: grid;\n\tgrid-template-columns: auto 250px;\n  grid-template-rows: 100vh;\n\n\n}\n\n\n.normal{\n  width:100%;\n  height:auto;\n}\n\n.phone{\n  height:100%;\n    max-height:600px;\n  width:auto;\n}\n.player{\n  width:100%;\n  height:100%;\n  max-height:600px;\n  background:#000;\n  text-align: center;\n\n background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAALElEQVQYV2NkYGD4/x9IMAIxAxoDmzhIHfU0gCxFB9S1AacfsFmNJQzAoQIAH84j/OCkeYUAAAAASUVORK5CYII=');\n\n\n}\n.currentdata{\n  height: 50px;\n  display:block;\n  width: 100%;\n  background-color: #000;\n  color:#fff;\n}\n\n\n.player::before,\n.player::after {\n  animation-iteration-count: infinite;\n  animation-timing-function: linear;\n  animation-direction: alternate-reverse;\n  overflow: hidden;\n  position: absolute;\n  top: -100%;\n  clip: rect(0, 900px, 0, 0);\n  content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAALElEQVQYV2NkYGD4/x9IMAIxAxoDmzhIHfU0gCxFB9S1AacfsFmNJQzAoQIAH84j/OCkeYUAAAAASUVORK5CYII=');\n\n}\n\n.player::after {\n  animation-name: glitch-animation;\n  animation-duration: 4s;\n  left: 4px;\n  text-shadow: -1px 0 #ffa800;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAALElEQVQYV2NkYGD4/x9IMAIxAxoDmzhIHfU0gCxFB9S1AacfsFmNJQzAoQIAH84j/OCkeYUAAAAASUVORK5CYII=');\n\n}\n\n.player::before {\n  animation-name: glitch-animation-2;\n  animation-duration: 6s;\n  left: -4px;\n  text-shadow: 1px 0 #00d8ff;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGCAYAAAD37n+BAAAALElEQVQYV2NkYGD4/x9IMAIxAxoDmzhIHfU0gCxFB9S1AacfsFmNJQzAoQIAH84j/OCkeYUAAAAASUVORK5CYII=');\n\n}\n\n.infos{\n  background:#123;\n}\n\n\n\n\n\n\n@keyframes glitch-animation {\n  0% {\n    clip: rect(42px, 9999px, 44px, 0);\n  }\n  5% {\n    clip: rect(12px, 9999px, 59px, 0);\n  }\n  10% {\n    clip: rect(48px, 9999px, 29px, 0);\n  }\n  15.0% {\n    clip: rect(42px, 9999px, 73px, 0);\n  }\n  20% {\n    clip: rect(63px, 9999px, 27px, 0);\n  }\n  25% {\n    clip: rect(34px, 9999px, 55px, 0);\n  }\n  30.0% {\n    clip: rect(86px, 9999px, 73px, 0);\n  }\n  35% {\n    clip: rect(20px, 9999px, 20px, 0);\n  }\n  40% {\n    clip: rect(26px, 9999px, 60px, 0);\n  }\n  45% {\n    clip: rect(25px, 9999px, 66px, 0);\n  }\n  50% {\n    clip: rect(57px, 9999px, 98px, 0);\n  }\n  55.0% {\n    clip: rect(5px, 9999px, 46px, 0);\n  }\n  60.0% {\n    clip: rect(82px, 9999px, 31px, 0);\n  }\n  65% {\n    clip: rect(54px, 9999px, 27px, 0);\n  }\n  70% {\n    clip: rect(28px, 9999px, 99px, 0);\n  }\n  75% {\n    clip: rect(45px, 9999px, 69px, 0);\n  }\n  80% {\n    clip: rect(23px, 9999px, 85px, 0);\n  }\n  85.0% {\n    clip: rect(54px, 9999px, 84px, 0);\n  }\n  90% {\n    clip: rect(45px, 9999px, 47px, 0);\n  }\n  95% {\n    clip: rect(37px, 9999px, 20px, 0);\n  }\n  100% {\n    clip: rect(4px, 9999px, 91px, 0);\n  }\n}\n@keyframes glitch-animation-2 {\n  0% {\n    clip: rect(65px, 9999px, 100px, 0);\n  }\n  5% {\n    clip: rect(52px, 9999px, 74px, 0);\n  }\n  10% {\n    clip: rect(79px, 9999px, 85px, 0);\n  }\n  15.0% {\n    clip: rect(75px, 9999px, 5px, 0);\n  }\n  20% {\n    clip: rect(67px, 9999px, 61px, 0);\n  }\n  25% {\n    clip: rect(14px, 9999px, 79px, 0);\n  }\n  30.0% {\n    clip: rect(1px, 9999px, 66px, 0);\n  }\n  35% {\n    clip: rect(86px, 9999px, 30px, 0);\n  }\n  40% {\n    clip: rect(23px, 9999px, 98px, 0);\n  }\n  45% {\n    clip: rect(85px, 9999px, 72px, 0);\n  }\n  50% {\n    clip: rect(71px, 9999px, 75px, 0);\n  }\n  55.0% {\n    clip: rect(2px, 9999px, 48px, 0);\n  }\n  60.0% {\n    clip: rect(30px, 9999px, 16px, 0);\n  }\n  65% {\n    clip: rect(59px, 9999px, 50px, 0);\n  }\n  70% {\n    clip: rect(41px, 9999px, 62px, 0);\n  }\n  75% {\n    clip: rect(2px, 9999px, 82px, 0);\n  }\n  80% {\n    clip: rect(47px, 9999px, 73px, 0);\n  }\n  85.0% {\n    clip: rect(3px, 9999px, 27px, 0);\n  }\n  90% {\n    clip: rect(26px, 9999px, 55px, 0);\n  }\n  95% {\n    clip: rect(42px, 9999px, 97px, 0);\n  }\n  100% {\n    clip: rect(38px, 9999px, 49px, 0);\n  }\n}\n\n\n\n.progress-wrap {\n  background: #000;\n    width: 100%;\n  margin: 20px 0;\n  overflow: hidden;\n  position: relative;\n    height: 20px;\n}\n .progress-bar {\n  background: #ddd;\n  left: 0;\n  position: relative;\n  height: 100%;\n  width:0px;\n  top: 0;\n}\n", ""]);
+=======
+exports.push([module.i, "*{\r\n  padding:0px;\r\n  margin:0px;\r\n}\r\n.main {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: auto 250px;\r\n  grid-template-rows: 100vh;\r\n\r\n\r\n}\r\n\r\n\r\n.normal{\r\n  width:100%;\r\n  height:auto;\r\n}\r\n\r\n.phone{\r\n  height:100%;\r\n  width:auto;\r\n}\r\n.player{\r\n  width:100%;\r\n  height:100%;\r\n  background:#000;\r\n  text-align: center;\r\n\r\n}\r\n.infos{\r\n  background:#123;\r\n}\r\n\r\n\r\n\r\n\r\n.progress-wrap {\r\n  background: #000;\r\n    width: 100%;\r\n  margin: 20px 0;\r\n  overflow: hidden;\r\n  position: relative;\r\n    height: 20px;\r\n}\r\n .progress-bar {\r\n  background: #ddd;\r\n  left: 0;\r\n  position: relative;\r\n  height: 100%;\r\n  width:0px;\r\n  top: 0;\r\n}\r\n", ""]);
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 
 // exports
 
@@ -969,14 +1070,25 @@ module.exports = function (css) {
 
 /***/ }),
 /* 17 */
+<<<<<<< HEAD
 /***/ (function(module, exports) {
 
 module.exports = require("os");
+=======
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = require("fs");
 
 /***/ }),
@@ -996,6 +1108,8 @@ module.exports = require("mkdirp");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
 
 
+=======
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /* harmony default export */ __webpack_exports__["a"] = (function (cb) {
   const qs = e => {
     return document.querySelector(e);
@@ -1045,7 +1159,11 @@ module.exports = require("mkdirp");
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 21 */
+=======
+/* 18 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1102,7 +1220,11 @@ function query4chanAPI(index, array, cb) {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 22 */
+=======
+/* 19 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1159,7 +1281,11 @@ function querynsfw4chanAPI(index, array, cb) {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 23 */
+=======
+/* 20 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1248,7 +1374,11 @@ const qsa = e => {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 24 */
+=======
+/* 21 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1337,7 +1467,11 @@ const qsa = e => {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 25 */
+=======
+/* 22 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1424,7 +1558,11 @@ const qsa = e => {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 26 */
+=======
+/* 23 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1476,7 +1614,11 @@ const qsa = e => {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 27 */
+=======
+/* 24 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1589,7 +1731,11 @@ const qsa = e => {
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 28 */
+=======
+/* 25 */
+>>>>>>> 1ca4b498d9681c55796873da91a6e15296d419e7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
