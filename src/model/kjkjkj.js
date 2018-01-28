@@ -1,58 +1,12 @@
 
 import request from 'request';
 import cheerio from 'cheerio';
-const Y = a=>(a=>a(a))(b=>a(a=>b(b)(a)));
 const qs=(e)=>{
   return document.querySelector(e)
 }
 const qsa=(e)=>{
   return document.querySelectorAll(e)
 }
-
-
-function scrap(url,next){
-
-
-try{
-console.log('do '+url)
-
-  request.get({
-    url:  url,
-    timeout: 1200
-},(error,response,html)=>{
-
-console.log(url+' error:'+error,response)
-if(!error){
-     let $ = cheerio.load(html);
-     console.log($('video').get(0).attribs.src)
-     if($('video').get(0).attribs.src){
-            next('https:'+$('video').get(0).attribs.src)
-     }else{
-       next(null)
-     }
-}else{
-  next(null)
-}
-
-
-
-//  qs('.load-wobm .progress-bar').style.width=(o/Number(requestindex2))*100+"%";
-//
-//  webms.push("https://b.w0bm.com/"+o+".webm")
-// if(wobindex===Number(requestindex2)){
-// cb(webms)
-// }
-
-})
-}catch(e){
-  console.log(e)
-  next(null)
-}
-
-
-}
-
-
 export default function(cb){
 
 
@@ -87,44 +41,16 @@ console.log(html)
                  }
                }
                let requestindex2=arr3[arr3.indexOf(Math.max(...arr3))]
-               console.log('============',requestindex2)
+               console.log('===============',requestindex2)
                let webms=[];
-               let wobindex=0;
-               let o=1
+               for(let o=1;o<=Number(requestindex2);o++){
+                 qs('.load-wobm .progress-bar').style.width=(o/Number(requestindex2))*100+"%";
 
-
-
-               let fn = Y(fn => () => {
-
-
-                 scrap('https://w0bm.com/'+o,(url)=>{
-
-                   console.log(o,(100-(o/requestindex2)*100))
-                  qs('.load-wobm .progress-bar').style.width=((o/Number(requestindex2))*100)+"%";
-                   o++;
-                   console.log(o,requestindex2,url)
-
-                    if(url){
-                      webms.push(url)
-                    }
-
-                   if (o <= requestindex2) {
-                     fn();
-                   }else{
-
-                      cb(webms)
-                   }
-                 })
-
-               });
-               fn()
-
-
-
-            //   for(let o=1;o<=Number(requestindex2);o++){
-
-
-            // }
+                 webms.push("https://b.w0bm.com/"+o+".webm")
+                 if(o===Number(requestindex2)){
+                       cb(webms)
+                 }
+               }
 
              }
 

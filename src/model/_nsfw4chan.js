@@ -26,7 +26,7 @@ console.log(index,d)
 
     setTimeout(()=>{
       index++;
-         qs('.load-4channsfw .progress-bar').style.width=(index/11)*100+"%";
+         qs('.load-nsfw4chan .progress-bar').style.width=(index/11)*100+"%";
       if(index===11){
 
         return cb();

@@ -21,6 +21,8 @@ import fillwebmlandplaylist from './model/_webmland';
 import fillwebmshareplaylist from './model/_webmshare';
 import fillwobmplaylist from './model/_wobm';
 import fillwebmxyzplaylist from './model/_webmxyz';
+import http from 'http-https';
+import fileType from 'file-type';
 
 if(!fs.existsSync(os.homedir()+'/Documents/webmtv/settings.json')){
   mkdirp(os.homedir()+'/Documents/webmtv/', function(err) {
@@ -47,6 +49,22 @@ function storesettings(data){
 }
 function getsettings(data){
 return JSON.parse(fs.readFileSync(os.homedir()+'/Documents/webmtv/settings.json', {encoding: "utf8"}))
+}
+
+
+function cleanArray(a) {
+    let seen = {};
+    let out = [];
+    let len = a.length;
+    let j = 0;
+    for(let i = 0; i < len; i++) {
+         let item = a[i];
+         if(seen[item] !== 1) {
+               seen[item] = 1;
+               out[j++] = item;
+         }
+    }
+    return out;
 }
 
 
@@ -97,15 +115,27 @@ return playlists;
 
 
 
-
+function random(){
+globalindex=Math.floor(Math.random()*(globalarray.length-1));
+  play()
+}
 
 
 function play(){
+
+
   if(!qs('video').paused){
     qs('video').pause()
   }
   qs('#currentmedia').innerHTML=globalarray[globalindex]
-
+  qs('.playlist-position').innerHTML=(globalindex+1)+'/'+globalarray.length
+   qs('.load-all .progress-bar').style.width=((globalindex+1)/globalarray.length)*100+"%";
+  http.get(globalarray[globalindex], res => {
+    res.once('data', chunk => {
+        res.destroy();
+        console.log(fileType(chunk));
+        //=> {ext: 'gif', mime: 'image/gif'}
+if(fileType(chunk).mime=='video/webm'){
   qs('video').src=globalarray[globalindex]
   qs('video').addEventListener('error',(e,d)=>{
     console.log(e,d)
@@ -129,6 +159,16 @@ qs('video').addEventListener("canplay",(e,d)=>{
   console.log(e,d)
     qs('video').play()
 })
+}else{
+
+
+  qs('#currentmedia').innerHTML='error not a webm  :'+fileType(chunk).mime +' => next()'
+next()
+
+}
+});
+});
+
 
 
 }
@@ -163,58 +203,65 @@ let playlist=[]
 
 
 
-function loadsite(site){
+function loadsite(site,next){
   switch(site){
   case "2chan":
   fill2chanplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+  next()
   })
   break;
   case "wobm":
   fillwobmplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays.reverse())
+  globalarray.push(...cleanArray(webmsarrays.reverse()))
+    next()
   })
   break;
   case "webmxyz":
   fillwebmxyzplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
   })
   break;
   case "4chan":
   fill4chanplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
   })
   break;
   case "nsfw4chan":
   fillnsfw4chanplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
   })
   break;
   case "webmshare":
   fillwebmshareplaylist((webmsarrays)=>{
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
   })
 
   break;
   case "webmland":
   fillwebmlandplaylist((webmsarrays)=>{
 
-  globalarray.push(...webmsarrays)
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
 
 })
   break;
   case "issoutv":
   fillissouplaylist((webmsarrays)=>{
-    console.log(webmsarrays)
-    globalindex=0;
-  globalarray.push(...webmsarrays)
+
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
   })
   break;
   case "nsfwissoutv":
   fillissounsfwplaylist((webmsarrays)=>{
-    console.log(webmsarrays)
-    //globalindex=0;
-  globalarray.push(...webmsarrays)
+
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
 
   })
 
@@ -227,11 +274,18 @@ function loadsite(site){
 
 
 
-function initplaylist(){
-
+function initplaylist(next){
+let index=0
 for(let o of whattoload()){
 
-  loadsite(o)
+  loadsite(o,()=>{
+  index++;
+  if(index>=whattoload().length){
+
+    next()
+  }
+
+  })
 }
 
 
@@ -247,8 +301,10 @@ for(let o of qsa('input[type=checkbox]')){
   initcheckboxes()
 qs('#initplaylist').addEventListener('click',(e)=>{
   globalindex=0;
-  initplaylist()
-  play()
+  initplaylist(()=>{
+      play()
+  })
+
 })
 
 
@@ -258,6 +314,7 @@ qs('#initplaylist').addEventListener('click',(e)=>{
 
     if (e.keyCode == '38') {
         // up arrow
+        random()
     }
     else if (e.keyCode == '40') {
         // down arrow
