@@ -247,10 +247,11 @@ function whattoload() {
 
   if (qs('#dowebmland').checked) {
     playlists.push("webmland");
-  } // if(qs('#dowebmxyz').checked){
-  //   playlists.push("webmxyz")
-  // }
+  }
 
+  if (qs('#dowebmxyz').checked) {
+    playlists.push("webmxyz");
+  }
 
   storesettings(playlists);
   return playlists;
@@ -331,6 +332,14 @@ function play() {
     if (duration > 0) {
       qs('#seekbar span').style.width = qs('video').currentTime / duration * 100 + "%";
     }
+  });
+  qs("#seekbar").addEventListener("click", function (e) {
+    var offset = qs("#seekbar").getBoundingClientRect();
+    var left = e.pageX - offset.left;
+    var totalWidth = qs("#seekbar").offsetWidth;
+    var percentage = left / totalWidth;
+    var vidTime = qs('video').duration * percentage;
+    qs('video').currentTime = vidTime;
   });
 }
 
@@ -484,6 +493,16 @@ qs('.playctrl').addEventListener('click', () => {
     qs('.playctrl').classList.add('playBtn');
     video.pause();
   }
+});
+qs(".load-all").addEventListener("click", function (e) {
+  let offset = qs(".load-all").getBoundingClientRect();
+  let left = e.pageX - offset.left;
+  let totalWidth = qs(".load-all").offsetWidth;
+  let percentage = left / totalWidth;
+  let current = globalarray.length * percentage;
+  globalindex = parseInt(current);
+  console.log(globalindex);
+  play(); //var vidTime = qs('video').duration * percentage;
 });
 
 /***/ }),
@@ -1778,12 +1797,16 @@ const qsa = e => {
       let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
       let pagesmax = $('#pagination').data('pages');
       console.log(pagesmax);
-      __WEBPACK_IMPORTED_MODULE_0_request___default.a.get("https://webm.xyz/page/" + pagesmax, (error, response, html) => {
-        console.log(html);
-
+      __WEBPACK_IMPORTED_MODULE_0_request___default.a.get({
+        url: "https://webm.xyz/page/" + Math.floor(pagesmax / 2),
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Referer': 'https://webm.xyz/'
+        }
+      }, (error, response, html) => {
         if (!error) {
           let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
-          let webms = $('.webm-list-item').data('href');
+          let webms = $('.webm-list-item');
           console.log(webms);
         }
       });

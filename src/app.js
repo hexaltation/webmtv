@@ -108,9 +108,9 @@ if(qs('#donsfwissoutv').checked){
 if(qs('#dowebmland').checked){
   playlists.push("webmland")
 }
-// if(qs('#dowebmxyz').checked){
-//   playlists.push("webmxyz")
-// }
+if(qs('#dowebmxyz').checked){
+  playlists.push("webmxyz")
+}
 storesettings(playlists)
 
 return playlists;
@@ -200,6 +200,16 @@ qs('video').addEventListener('timeupdate', function() {
   if (duration > 0) {
   qs('#seekbar span').style.width = ((qs('video').currentTime / duration)*100) + "%";
   }
+});
+
+
+qs("#seekbar").addEventListener("click", function(e){
+    var offset = qs("#seekbar").getBoundingClientRect();
+    var left = (e.pageX - offset.left);
+    var totalWidth = qs("#seekbar").offsetWidth;
+    var percentage = ( left / totalWidth );
+    var vidTime = qs('video').duration * percentage;
+    qs('video').currentTime = vidTime;
 });
 
 }
@@ -384,3 +394,17 @@ if(video.paused){
 }
 
  })
+ qs(".load-all").addEventListener("click", function(e){
+
+     let offset = qs(".load-all").getBoundingClientRect();
+     let left = (e.pageX - offset.left);
+     let totalWidth = qs(".load-all").offsetWidth;
+     let percentage = ( left / totalWidth );
+     let current= globalarray.length * percentage
+
+     globalindex=parseInt(current);
+     console.log( globalindex)
+     play()
+     //var vidTime = qs('video').duration * percentage;
+
+ });

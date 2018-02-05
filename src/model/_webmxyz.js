@@ -21,12 +21,17 @@ export default function(cb){
          let pagesmax=$('#pagination').data('pages')
          console.log(pagesmax)
 
-       request.get("https://webm.xyz/page/"+pagesmax,(error, response, html)=>{
-         console.log(html)
+       request.get({
+          url:"https://webm.xyz/page/"+Math.floor(pagesmax/2),
+          headers: {  'X-Requested-With':'XMLHttpRequest',  'Referer':'https://webm.xyz/'}
+
+        	},(error, response, html)=>{
+
      if(!error){
        let $ = cheerio.load(html);
 
-       let webms=$('.webm-list-item').data('href')
+       let webms=$('.webm-list-item')
+
 console.log(webms)
      }
 
