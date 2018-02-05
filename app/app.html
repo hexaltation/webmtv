@@ -13,27 +13,46 @@
 
 
 <div class="main">
-<div class="player">
-    <video controls></video>
-    <div class="currentdata">
-      <div id="currentmedia">
+  <div class="left">
 
-      </div>
-      <div class="playlist-position">
-      </div>
-      </div>
-      <div class="progress-wrap  load-all" >
-        <div class="progress-bar progress"></div>
-      </div>
+
+<div class="player">
+    <video></video>
+</div>
+<div id="ctrlz">
+
+
+    <div class="videoControl">
+  <div id="seekbar">
+    <span></span>
+  </div>
+  <span class="playBtn playctrl"></span>
+
+  <span id="seekbar"></span>
+<!--  <span id="fullButton"></span>-->
+
+  <div class="currentdata">
+    <div id="currentmedia">
+
+    </div >
+    <div class="playlist-position">
+    </div>
+    </div>
+    <div class="progress-wrap  load-all" >
+      <div class="progress-bar progress"></div>
     </div>
 </div>
+</div>
 
-      <div class="infos">
+
+</div>
+
+      <div class="infos rigth">
 
         <button id="initplaylist">load</button>
 <ul>
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>2chan</span><input type="checkbox"  id='do2chan'/>
   </div>
     <div class="progress-wrap  load-2chan" >
@@ -43,7 +62,7 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>4chan</span><input type="checkbox"  id='do4chan'/>
   </div>
     <div class="progress-wrap progress load-4chan" >
@@ -53,7 +72,7 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>4chan nsfw</span><input type="checkbox"  id='donsfw4chan'/>
   </div>
   <div class="progress-wrap progress load-nsfw4chan" >
@@ -65,7 +84,7 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>webmland</span><input type="checkbox"  id='dowebmland'/>
   </div>
     <div class="progress-wrap progress load-webmland" >
@@ -75,9 +94,9 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>webmshare</span><input type="checkbox"  id='dowebmshare'/>
-  </div>
+  </div >
     <div class="progress-wrap progress load-webmshare" >
       <div class="progress-bar progress"></div>
     </div>
@@ -85,7 +104,7 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>wobm</span><input type="checkbox"  id='dowobm'/>
   </div>
     <div class="progress-wrap progress load-wobm" >
@@ -95,7 +114,7 @@
   </li>
 
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>issoutv</span><input type="checkbox"  id='doissoutv'/>
   </div>
     <div class="progress-wrap progress load-issoutv" >
@@ -104,7 +123,7 @@
 
   </li>
   <li>
-  <div>
+  <div class="title-ctrl">
       <span>issoutv nsfw</span><input type="checkbox"  id='donsfwissoutv'/>
   </div>
     <div class="progress-wrap progress load-issoutvnsfw" >
@@ -112,11 +131,13 @@
     </div>
 
   </li>
+
+
 </ul>
     </div>
 </div>
 
-
+  </div>
 
 
 <script src="app.js"></script>

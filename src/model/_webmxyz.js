@@ -14,12 +14,24 @@ export default function(cb){
   let requestindex=0
 
    request.get("https://webm.xyz/",(error, response, html)=>{
-console.log(html)
+
      if(!error){
 
          let $ = cheerio.load(html);
          let pagesmax=$('#pagination').data('pages')
          console.log(pagesmax)
+
+       request.get("https://webm.xyz/page/"+pagesmax,(error, response, html)=>{
+         console.log(html)
+     if(!error){
+       let $ = cheerio.load(html);
+
+       let webms=$('.webm-list-item').data('href')
+console.log(webms)
+     }
+
+       })
+
        }
     //      let arr=$('.v-pagination li a').map(function(i,el) { return $(el).html(); }).get()
     //      let arr2=[]

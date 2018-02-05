@@ -108,6 +108,9 @@ if(qs('#donsfwissoutv').checked){
 if(qs('#dowebmland').checked){
   playlists.push("webmland")
 }
+// if(qs('#dowebmxyz').checked){
+//   playlists.push("webmxyz")
+// }
 storesettings(playlists)
 
 return playlists;
@@ -122,13 +125,13 @@ globalindex=Math.floor(Math.random()*(globalarray.length-1));
 
 
 function play(){
-
+console.log('play')
 
   if(!qs('video').paused){
     qs('video').pause()
   }
-  qs('#currentmedia').innerHTML=globalarray[globalindex]
-  qs('.playlist-position').innerHTML=(globalindex+1)+'/'+globalarray.length
+   qs('#currentmedia').innerHTML=globalarray[globalindex]
+   qs('.playlist-position').innerHTML=(globalindex+1)+'/'+globalarray.length
    qs('.load-all .progress-bar').style.width=((globalindex+1)/globalarray.length)*100+"%";
   http.get(globalarray[globalindex], res => {
     res.once('data', chunk => {
@@ -142,7 +145,11 @@ if(fileType(chunk).mime=='video/webm'){
   //next()
   })
   qs('video').addEventListener('ended',()=>{
-  next()
+    console.log('ended')
+    setTimeout(()=>{
+        next()
+    },750)
+
   })
 
   qs('video').addEventListener( "loadedmetadata", function(e) {
@@ -169,7 +176,31 @@ next()
 });
 });
 
+qs('video').addEventListener('progress', function() {
+  var bufferedEnd = qs('video').buffered.end(qs('video').buffered.length - 1);
+  console.log('buffer', bufferedEnd)
+  var duration =  qs('video').duration;
+   if (duration > 0) {
+     var buffPercent = (bufferedEnd / duration)*100;
+     console.log(buffPercent)
+   }
+  //   console.log(buffPercent);
+  //   if (buffPercent > 25) {
+  //     if (autoplay) {
+  //       myAudio.play();
+  //       autoplay = false;
+  //     }
+  //   }
+  //   qs('#seekbar span').style.width = buffPercent + "%";
+  // }
+});
 
+qs('video').addEventListener('timeupdate', function() {
+  var duration =  qs('video').duration;
+  if (duration > 0) {
+  qs('#seekbar span').style.width = ((qs('video').currentTime / duration)*100) + "%";
+  }
+});
 
 }
 
@@ -267,7 +298,16 @@ function loadsite(site,next){
 
 
   break;
+  case "webmxyz":
+  fillwebmxyzplaylist((webmsarrays)=>{
 
+  globalarray.push(...cleanArray(webmsarrays))
+    next()
+
+  })
+
+
+  break;
 
   }
 }
@@ -291,13 +331,13 @@ for(let o of whattoload()){
 
  }
 
-for(let o of qsa('input[type=checkbox]')){
-  o.addEventListener('change',()=>{
-    console.log('changed')
-  console.log(whattoload())
-  //initcheckboxes()
-  })
-}
+// for(let o of qsa('input[type=checkbox]')){
+//   o.addEventListener('change',()=>{
+//     console.log('changed')
+//   console.log(whattoload())
+//   //initcheckboxes()
+//   })
+// }
   initcheckboxes()
 qs('#initplaylist').addEventListener('click',(e)=>{
   globalindex=0;
@@ -325,4 +365,22 @@ qs('#initplaylist').addEventListener('click',(e)=>{
     else if (e.keyCode == '39') {
    next()
     }
+ })
+
+ qs('.playctrl').addEventListener('click',()=>{
+const video=qs('video');
+if(video.paused){
+
+
+ qs('.playctrl').classList.remove('playBtn')
+ qs('.playctrl').classList.add('pauseBtn')
+ video.play()
+
+}else{
+ qs('.playctrl').classList.remove('pauseBtn')
+   qs('.playctrl').classList.add('playBtn')
+   video.pause()
+
+}
+
  })
