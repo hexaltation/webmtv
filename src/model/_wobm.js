@@ -1,6 +1,7 @@
 
 import request from 'request';
 import cheerio from 'cheerio';
+import cleanArray from './cleanarray';
 const Y = a=>(a=>a(a))(b=>a(a=>b(b)(a)));
 const qs=(e)=>{
   return document.querySelector(e)
@@ -53,7 +54,7 @@ if(!error){
 }
 
 
-export default function(cb){
+export default function(playlist,cb){
 
 
     console.log('nsfw issou filling')

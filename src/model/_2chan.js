@@ -1,7 +1,8 @@
 
 import request from 'request';
 import cheerio from 'cheerio';
-export default function(cb){
+import cleanArray from './cleanarray';
+export default function(playlist,cb){
   const qs=(e)=>{
     return document.querySelector(e)
   }

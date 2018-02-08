@@ -23,6 +23,7 @@ import fillwobmplaylist from './model/_wobm';
 import fillwebmxyzplaylist from './model/_webmxyz';
 import http from 'http-https';
 import fileType from 'file-type';
+import cleanArray from './model/cleanarray';
 
 if(!fs.existsSync(os.homedir()+'/Documents/webmtv/settings.json')){
   mkdirp(os.homedir()+'/Documents/webmtv/', function(err) {
@@ -52,20 +53,7 @@ return JSON.parse(fs.readFileSync(os.homedir()+'/Documents/webmtv/settings.json'
 }
 
 
-function cleanArray(a) {
-    let seen = {};
-    let out = [];
-    let len = a.length;
-    let j = 0;
-    for(let i = 0; i < len; i++) {
-         let item = a[i];
-         if(seen[item] !== 1) {
-               seen[item] = 1;
-               out[j++] = item;
-         }
-    }
-    return out;
-}
+
 
 
 
@@ -247,44 +235,44 @@ let playlist=[]
 function loadsite(site,next){
   switch(site){
   case "2chan":
-  fill2chanplaylist((webmsarrays)=>{
+  fill2chanplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays))
   next()
   })
   break;
   case "wobm":
-  fillwobmplaylist((webmsarrays)=>{
+  fillwobmplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays.reverse()))
     next()
   })
   break;
   case "webmxyz":
-  fillwebmxyzplaylist((webmsarrays)=>{
+  fillwebmxyzplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays))
     next()
   })
   break;
   case "4chan":
-  fill4chanplaylist((webmsarrays)=>{
+  fill4chanplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays))
     next()
   })
   break;
   case "nsfw4chan":
-  fillnsfw4chanplaylist((webmsarrays)=>{
+  fillnsfw4chanplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays))
     next()
   })
   break;
   case "webmshare":
-  fillwebmshareplaylist((webmsarrays)=>{
+  fillwebmshareplaylist(globalarray,(webmsarrays)=>{
   globalarray.push(...cleanArray(webmsarrays))
     next()
   })
 
   break;
   case "webmland":
-  fillwebmlandplaylist((webmsarrays)=>{
+  fillwebmlandplaylist(globalarray,(webmsarrays)=>{
 
   globalarray.push(...cleanArray(webmsarrays))
     next()
@@ -292,14 +280,14 @@ function loadsite(site,next){
 })
   break;
   case "issoutv":
-  fillissouplaylist((webmsarrays)=>{
+  fillissouplaylist(globalarray,(webmsarrays)=>{
 
   globalarray.push(...cleanArray(webmsarrays))
     next()
   })
   break;
   case "nsfwissoutv":
-  fillissounsfwplaylist((webmsarrays)=>{
+  fillissounsfwplaylist(globalarray,(webmsarrays)=>{
 
   globalarray.push(...cleanArray(webmsarrays))
     next()
@@ -309,7 +297,7 @@ function loadsite(site,next){
 
   break;
   case "webmxyz":
-  fillwebmxyzplaylist((webmsarrays)=>{
+  fillwebmxyzplaylist(globalarray,(webmsarrays)=>{
 
   globalarray.push(...cleanArray(webmsarrays))
     next()

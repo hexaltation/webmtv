@@ -1,13 +1,14 @@
 
 import request from 'request';
 import cheerio from 'cheerio';
+import cleanArray from './cleanarray';
 const qs=(e)=>{
   return document.querySelector(e)
 }
 const qsa=(e)=>{
   return document.querySelectorAll(e)
 }
-export default function(cb){
+export default function(playlist,cb){
 
 
     console.log('nsfw issou filling')
