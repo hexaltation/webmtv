@@ -12,9 +12,30 @@ Support for the following websites:
 + webmshare
 + wobm
 + issoutv
++ webmxyz
 
+
+
+
+wip data base
 todo :
 
 nice ui
 encoding with ffmpeg
 better nav logic
+
+
+```js
+
+
+let obj={
+"url":'<file url>',
+"hash":'<file hash>',
+"local":'<local file>',
+"tags":['<tag>','<tag>'],
+
+
+}
+
+
+```

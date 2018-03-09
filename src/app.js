@@ -1,3 +1,6 @@
+import firststart from'./firststart';
+
+firststart()
 
 import "./stylesheets/main.css";
 
@@ -25,13 +28,12 @@ import http from 'http-https';
 import fileType from 'file-type';
 import cleanArray from './model/cleanarray';
 
-if(!fs.existsSync(os.homedir()+'/Documents/webmtv/settings.json')){
-  mkdirp(os.homedir()+'/Documents/webmtv/', function(err) {
-if(!err){
-  fs.writeFileSync(os.homedir()+'/Documents/webmtv/settings.json', JSON.stringify([]));
-}
-});
-}
+
+
+
+
+
+
 
 let globalarray=[]
 let globalindex=0;
@@ -44,6 +46,9 @@ const qs=(e)=>{
 const qsa=(e)=>{
   return document.querySelectorAll(e)
 }
+
+
+
 
 function storesettings(data){
   fs.writeFileSync(os.homedir()+'/Documents/webmtv/settings.json', JSON.stringify(data));

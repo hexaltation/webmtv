@@ -1,3 +1,11 @@
+import os from 'os';
+import fs from 'fs';
+
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
+
+
 
 import request from 'request';
 import cheerio from 'cheerio';
@@ -29,7 +37,23 @@ export default function(playlist,cb){
    if(uniqueNames.indexOf(i)=== -1){
      console.log(i.split('.webm')[1])
      if(i.split('.webm')[1]!=undefined){
+
+
+       db.store('_2chan',{
+
+         url:"http://may.2chan.net"+i,
+         nsfw:false,
+         tags:[],
+         hash:null,
+         local:'/medias/2chan/'+i.split('/').pop()
+
+       }).then(data=>{
+         console.log(data)
+       }).catch(e=>{
+         console.log(e)
+       })
            uniqueNames.push("http://may.2chan.net"+i)
+
      }
 
    }

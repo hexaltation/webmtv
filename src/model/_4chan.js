@@ -21,7 +21,22 @@ console.log(index,d)
       for (let o of i.posts){
 
         if(o.ext===".webm"){
+
+          db.store('_4chan',{
+
+            url:"http://i.4cdn.org/wsg/"+o.tim+o.ext,
+            nsfw:false,
+            tags:[],
+            hash:null,
+            local:'/medias/4chan/'+o.tim+o.ext
+
+          }).then(data=>{
+            console.log(data)
+          }).catch(e=>{
+            console.log(e)
+          })
           arr.push("http://i.4cdn.org/wsg/"+o.tim+o.ext)
+
         }
       }
 

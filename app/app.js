@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -108,56 +108,82 @@ module.exports = require("electron");
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs-jetpack");
+module.exports = require("path");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
+module.exports = require("fs-jetpack");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
 module.exports = {"name":"development","description":"Add here any environment specific stuff you like."}
 
 /***/ }),
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("os");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("mkdirp");
+
+/***/ }),
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__stylesheets_main_css__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__stylesheets_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__stylesheets_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_electron__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_electron__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fs_jetpack__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fs_jetpack___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_fs_jetpack__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_env__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_env___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_env__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_os__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_os__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_fs__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_fs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mkdirp__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_mkdirp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_mkdirp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__model_2chan__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_4chan__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__model_nsfw4chan__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__model_nsfwissoutv__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__model_issoutv__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__model_webmland__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__model_webmshare__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__model_wobm__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__model_webmxyz__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_http_https__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_http_https___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_http_https__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_file_type__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_file_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_file_type__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__model_cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firststart__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_electron__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_fs_jetpack__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_fs_jetpack___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_fs_jetpack__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_env__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_env___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_env__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mkdirp__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mkdirp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mkdirp__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_2chan__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__model_4chan__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__model_nsfw4chan__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__model_nsfwissoutv__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__model_issoutv__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__model_webmland__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__model_webmshare__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__model_wobm__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__model_webmxyz__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_http_https__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_http_https___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_http_https__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_file_type__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_file_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_file_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__model_cleanarray__ = __webpack_require__(1);
+
+Object(__WEBPACK_IMPORTED_MODULE_0__firststart__["a" /* default */])();
  // ----------------------------------------------------------------------------
 // Everything below is just to show you how it works. You can delete all of it.
 // ----------------------------------------------------------------------------
@@ -181,19 +207,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-if (!__WEBPACK_IMPORTED_MODULE_6_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/settings.json')) {
-  __WEBPACK_IMPORTED_MODULE_7_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/', function (err) {
-    if (!err) {
-      __WEBPACK_IMPORTED_MODULE_6_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/settings.json', JSON.stringify([]));
-    }
-  });
-}
-
 let globalarray = [];
 let globalindex = 0;
-const app = __WEBPACK_IMPORTED_MODULE_1_electron__["remote"].app;
-const appDir = __WEBPACK_IMPORTED_MODULE_2_fs_jetpack___default.a.cwd(app.getAppPath());
+const app = __WEBPACK_IMPORTED_MODULE_2_electron__["remote"].app;
+const appDir = __WEBPACK_IMPORTED_MODULE_3_fs_jetpack___default.a.cwd(app.getAppPath());
 
 const qs = e => {
   return document.querySelector(e);
@@ -204,11 +221,11 @@ const qsa = e => {
 };
 
 function storesettings(data) {
-  __WEBPACK_IMPORTED_MODULE_6_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/settings.json', JSON.stringify(data));
+  __WEBPACK_IMPORTED_MODULE_7_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_6_os___default.a.homedir() + '/Documents/webmtv/settings.json', JSON.stringify(data));
 }
 
 function getsettings(data) {
-  return JSON.parse(__WEBPACK_IMPORTED_MODULE_6_fs___default.a.readFileSync(__WEBPACK_IMPORTED_MODULE_5_os___default.a.homedir() + '/Documents/webmtv/settings.json', {
+  return JSON.parse(__WEBPACK_IMPORTED_MODULE_7_fs___default.a.readFileSync(__WEBPACK_IMPORTED_MODULE_6_os___default.a.homedir() + '/Documents/webmtv/settings.json', {
     encoding: "utf8"
   }));
 }
@@ -279,12 +296,12 @@ function play() {
   qs('#currentmedia').innerHTML = globalarray[globalindex];
   qs('.playlist-position').innerHTML = globalindex + 1 + '/' + globalarray.length;
   qs('.load-all .progress-bar').style.width = (globalindex + 1) / globalarray.length * 100 + "%";
-  __WEBPACK_IMPORTED_MODULE_17_http_https___default.a.get(globalarray[globalindex], res => {
+  __WEBPACK_IMPORTED_MODULE_18_http_https___default.a.get(globalarray[globalindex], res => {
     res.once('data', chunk => {
       res.destroy();
-      console.log(__WEBPACK_IMPORTED_MODULE_18_file_type___default()(chunk)); //=> {ext: 'gif', mime: 'image/gif'}
+      console.log(__WEBPACK_IMPORTED_MODULE_19_file_type___default()(chunk)); //=> {ext: 'gif', mime: 'image/gif'}
 
-      if (__WEBPACK_IMPORTED_MODULE_18_file_type___default()(chunk).mime == 'video/webm') {
+      if (__WEBPACK_IMPORTED_MODULE_19_file_type___default()(chunk).mime == 'video/webm') {
         qs('video').src = globalarray[globalindex];
         qs('video').addEventListener('error', (e, d) => {
           console.log(e, d); //next()
@@ -309,7 +326,7 @@ function play() {
           qs('video').play();
         });
       } else {
-        qs('#currentmedia').innerHTML = 'error not a webm  :' + __WEBPACK_IMPORTED_MODULE_18_file_type___default()(chunk).mime + ' => next()';
+        qs('#currentmedia').innerHTML = 'error not a webm  :' + __WEBPACK_IMPORTED_MODULE_19_file_type___default()(chunk).mime + ' => next()';
         next();
       }
     });
@@ -375,71 +392,71 @@ let playlist = [];
 function loadsite(site, next) {
   switch (site) {
     case "2chan":
-      Object(__WEBPACK_IMPORTED_MODULE_8__model_2chan__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_9__model_2chan__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "wobm":
-      Object(__WEBPACK_IMPORTED_MODULE_15__model_wobm__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays.reverse()));
+      Object(__WEBPACK_IMPORTED_MODULE_16__model_wobm__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays.reverse()));
         next();
       });
       break;
 
     case "webmxyz":
-      Object(__WEBPACK_IMPORTED_MODULE_16__model_webmxyz__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_17__model_webmxyz__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "4chan":
-      Object(__WEBPACK_IMPORTED_MODULE_9__model_4chan__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_10__model_4chan__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "nsfw4chan":
-      Object(__WEBPACK_IMPORTED_MODULE_10__model_nsfw4chan__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_11__model_nsfw4chan__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "webmshare":
-      Object(__WEBPACK_IMPORTED_MODULE_14__model_webmshare__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_15__model_webmshare__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "webmland":
-      Object(__WEBPACK_IMPORTED_MODULE_13__model_webmland__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_14__model_webmland__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "issoutv":
-      Object(__WEBPACK_IMPORTED_MODULE_12__model_issoutv__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_13__model_issoutv__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "nsfwissoutv":
-      Object(__WEBPACK_IMPORTED_MODULE_11__model_nsfwissoutv__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_12__model_nsfwissoutv__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
 
     case "webmxyz":
-      Object(__WEBPACK_IMPORTED_MODULE_16__model_webmxyz__["a" /* default */])(globalarray, webmsarrays => {
-        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_19__model_cleanarray__["a" /* default */])(webmsarrays));
+      Object(__WEBPACK_IMPORTED_MODULE_17__model_webmxyz__["a" /* default */])(globalarray, webmsarrays => {
+        globalarray.push(...Object(__WEBPACK_IMPORTED_MODULE_20__model_cleanarray__["a" /* default */])(webmsarrays));
         next();
       });
       break;
@@ -513,13 +530,61 @@ qs(".load-all").addEventListener("click", function (e) {
 });
 
 /***/ }),
-/* 13 */
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mkdirp__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mkdirp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mkdirp__);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  if (!__WEBPACK_IMPORTED_MODULE_1_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/settings.json')) {
+    __WEBPACK_IMPORTED_MODULE_2_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/', function (err) {
+      if (!err) {
+        __WEBPACK_IMPORTED_MODULE_1_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/settings.json', JSON.stringify([]));
+      }
+    });
+  }
+
+  if (!__WEBPACK_IMPORTED_MODULE_1_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/.db')) {
+    __WEBPACK_IMPORTED_MODULE_2_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/.db', function (err) {
+      if (!err) {
+        __WEBPACK_IMPORTED_MODULE_1_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/.db', JSON.stringify([]));
+      }
+    });
+  }
+
+  if (!__WEBPACK_IMPORTED_MODULE_1_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/medias/.medias')) {
+    __WEBPACK_IMPORTED_MODULE_2_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/medias/.medias', function (err) {
+      if (!err) {
+        __WEBPACK_IMPORTED_MODULE_1_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/medias/.medias', JSON.stringify([]));
+      }
+    });
+  }
+
+  if (!__WEBPACK_IMPORTED_MODULE_1_fs___default.a.existsSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/encoded/.encoded')) {
+    __WEBPACK_IMPORTED_MODULE_2_mkdirp___default()(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/encoded/.encoded', function (err) {
+      if (!err) {
+        __WEBPACK_IMPORTED_MODULE_1_fs___default.a.writeFileSync(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/encoded/.encoded', JSON.stringify([]));
+      }
+    });
+  }
+});
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(14);
+var content = __webpack_require__(18);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -527,7 +592,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(16)(content, options);
+var update = __webpack_require__(20)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -544,10 +609,10 @@ if(false) {
 }
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(15)(false);
+exports = module.exports = __webpack_require__(19)(false);
 // imports
 
 
@@ -558,7 +623,7 @@ exports.push([module.i, "@font-face {\n  font-family: 'bit';\n  src: url(data:ap
 
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports) {
 
 /*
@@ -640,7 +705,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -696,7 +761,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(17);
+var	fixUrls = __webpack_require__(21);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1012,7 +1077,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports) {
 
 
@@ -1107,33 +1172,24 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("os");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-module.exports = require("mkdirp");
-
-/***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_cheerio__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cleanarray__ = __webpack_require__(1);
+
+
+
+const db = __webpack_require__(23)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1151,10 +1207,10 @@ module.exports = require("mkdirp");
   let webmsarrays = [];
 
   for (let pageurl of nichanpages) {
-    __WEBPACK_IMPORTED_MODULE_0_request___default.a.get(pageurl, (error, response, html) => {
+    __WEBPACK_IMPORTED_MODULE_2_request___default.a.get(pageurl, (error, response, html) => {
       if (!error) {
         // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
-        let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+        let $ = __WEBPACK_IMPORTED_MODULE_3_cheerio___default.a.load(html);
         var allLinks = $('.thre a').map(function (i, el) {
           return $(el).attr('href');
         }).get();
@@ -1167,6 +1223,17 @@ module.exports = require("mkdirp");
             console.log(i.split('.webm')[1]);
 
             if (i.split('.webm')[1] != undefined) {
+              db.store('_2chan', {
+                url: "http://may.2chan.net" + i,
+                nsfw: false,
+                tags: [],
+                hash: null,
+                local: '/medias/2chan/' + i.split('/').pop()
+              }).then(data => {
+                console.log(data);
+              }).catch(e => {
+                console.log(e);
+              });
               uniqueNames.push("http://may.2chan.net" + i);
             }
           }
@@ -1186,7 +1253,111 @@ module.exports = require("mkdirp");
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Datastore = __webpack_require__(24);
+
+const path = __webpack_require__(4);
+
+module.exports = function (dbBasePath) {
+  const databasePath = function (name) {
+    return path.join(dbBasePath, `_${name}.db`);
+  };
+
+  const db = {
+    wobm: new Datastore({
+      filename: databasePath('wobm'),
+      autoload: true
+    }),
+    webmxyz: new Datastore({
+      filename: databasePath('webmxyz'),
+      autoload: true
+    }),
+    issoutv: new Datastore({
+      filename: databasePath('issoutv'),
+      autoload: true
+    }),
+    _4chan: new Datastore({
+      filename: databasePath('4chan'),
+      autoload: true
+    }),
+    _2chan: new Datastore({
+      filename: databasePath('2chan'),
+      autoload: true
+    }),
+    webmland: new Datastore({
+      filename: databasePath('webmland'),
+      autoload: true
+    }),
+    webmshare: new Datastore({
+      filename: databasePath('webmshare'),
+      autoload: true
+    })
+  };
+  const actions = {};
+
+  __webpack_require__(25)(actions, db);
+
+  return actions;
+};
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("nedb");
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = (actions, db) => {
+  actions.store = (site, data) => {
+    console.log(site, data);
+    return new Promise((resolve, reject) => {
+      db[site].findOne({
+        url: data.url
+      }, (err, d) => {
+        console.log(err, d);
+
+        if (err) {
+          reject({
+            error: true,
+            debug: JSON.stringify(err)
+          });
+        } else {
+          if (d) {
+            console.log('rejecting');
+            reject({
+              error: true,
+              debug: 'aldready in database'
+            });
+          } else {
+            console.log('inserting');
+            db[site].insert({
+              url: data.url,
+              hash: data.hash,
+              creation_date: Date.now(),
+              tags: data.tags,
+              local: data.local,
+              nsfw: data.nsfw
+            }, (e, d) => {
+              resolve({
+                error: false,
+                msg: 'stored'
+              });
+            });
+            resolve(d);
+          }
+        }
+      });
+    });
+  };
+};
+
+/***/ }),
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1216,6 +1387,17 @@ function query4chanAPI(index, array, cb) {
     for (let i of d.threads) {
       for (let o of i.posts) {
         if (o.ext === ".webm") {
+          db.store('_4chan', {
+            url: "http://may.2chan.net" + i,
+            nsfw: false,
+            tags: [],
+            hash: null,
+            local: '/medias/4chan/' + i.split('/').pop()
+          }).then(data => {
+            console.log(data);
+          }).catch(e => {
+            console.log(e);
+          });
           arr.push("http://i.4cdn.org/wsg/" + o.tim + o.ext);
         }
       }
@@ -1245,7 +1427,7 @@ function query4chanAPI(index, array, cb) {
 });
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1304,7 +1486,7 @@ function querynsfw4chanAPI(index, array, cb) {
 });
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1395,7 +1577,7 @@ const qsa = e => {
 });
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1486,7 +1668,7 @@ const qsa = e => {
 });
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1575,7 +1757,7 @@ const qsa = e => {
 });
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1629,7 +1811,7 @@ const qsa = e => {
 });
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1793,7 +1975,7 @@ function scrap(url, next) {
 });
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1864,13 +2046,13 @@ const qsa = e => {
 });
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("http-https");
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("file-type");

@@ -51,6 +51,19 @@ export default function(playlist,cb){
            if(uniqueNames.indexOf(i)=== -1){
              console.log(i.split('.webm')[1])
              if(i.split('.webm')[1]!=undefined){
+               db.store('_4chan',{
+
+                 url:"http://issoutv.com"+i,
+                 nsfw:false,
+                 tags:[],
+                 hash:null,
+                 local:'/medias/issoutv/'+i.split('/').pop()
+
+               }).then(data=>{
+                 console.log(data)
+               }).catch(e=>{
+                 console.log(e)
+               })
                    uniqueNames.push("http://issoutv.com"+i)
              }
 

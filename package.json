@@ -35,7 +35,8 @@
     "file-type": "^7.5.0",
     "fs-jetpack": "^1.0.0",
     "http-https": "^1.0.0",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "nedb": "^1.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.5",
