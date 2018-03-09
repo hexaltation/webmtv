@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';
@@ -19,6 +22,19 @@ console.log(index,d)
 
         if(o.ext===".webm"){
           arr.push("http://i.4cdn.org/gif/"+o.tim+o.ext)
+          db.store('_4chan',{
+
+            url:"http://i.4cdn.org/gif/"+o.tim+o.ext,
+            nsfw:true,
+            tags:[],
+            hash:null,
+            local:'/medias/4chan/'+o.tim+o.ext
+
+          }).then(data=>{
+            console.log(data)
+          }).catch(e=>{
+            console.log(e)
+          })
         }
       }
 

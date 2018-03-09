@@ -60,17 +60,23 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = require("request");
+module.exports = require("os");
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("request");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -93,82 +99,126 @@ module.exports = require("request");
 });
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("cheerio");
-
-/***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("electron");
+const Datastore = __webpack_require__(24);
+
+const path = __webpack_require__(6);
+
+module.exports = function (dbBasePath) {
+  const databasePath = function (name) {
+    return path.join(dbBasePath, `_${name}.db`);
+  };
+
+  const db = {
+    _wobm: new Datastore({
+      filename: databasePath('wobm'),
+      autoload: true
+    }),
+    _webmxyz: new Datastore({
+      filename: databasePath('webmxyz'),
+      autoload: true
+    }),
+    _issoutv: new Datastore({
+      filename: databasePath('issoutv'),
+      autoload: true
+    }),
+    _4chan: new Datastore({
+      filename: databasePath('4chan'),
+      autoload: true
+    }),
+    _2chan: new Datastore({
+      filename: databasePath('2chan'),
+      autoload: true
+    }),
+    _webmland: new Datastore({
+      filename: databasePath('webmland'),
+      autoload: true
+    }),
+    _webmshare: new Datastore({
+      filename: databasePath('webmshare'),
+      autoload: true
+    })
+  };
+  const actions = {};
+
+  __webpack_require__(25)(actions, db);
+
+  return actions;
+};
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("cheerio");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs-jetpack");
+module.exports = require("electron");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"development","description":"Add here any environment specific stuff you like."}
+module.exports = require("path");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("os");
+module.exports = require("fs-jetpack");
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs");
+module.exports = {"name":"development","description":"Add here any environment specific stuff you like."}
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
+module.exports = require("fs");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
 module.exports = require("mkdirp");
 
 /***/ }),
-/* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
 /* 14 */,
-/* 15 */
+/* 15 */,
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firststart__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firststart__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__stylesheets_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_electron__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_fs_jetpack__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_fs_jetpack__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_fs_jetpack___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_fs_jetpack__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_env__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_env__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_env___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_env__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_request__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_os__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_os__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_fs__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_fs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mkdirp__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mkdirp__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_mkdirp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_mkdirp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_2chan__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_2chan__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__model_4chan__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__model_nsfw4chan__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__model_nsfwissoutv__ = __webpack_require__(28);
@@ -181,7 +231,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_http_https___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_http_https__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_file_type__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_file_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_file_type__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__model_cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__model_cleanarray__ = __webpack_require__(2);
 
 Object(__WEBPACK_IMPORTED_MODULE_0__firststart__["a" /* default */])();
  // ----------------------------------------------------------------------------
@@ -530,15 +580,15 @@ qs(".load-all").addEventListener("click", function (e) {
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mkdirp__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mkdirp__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mkdirp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mkdirp__);
 
 
@@ -578,13 +628,13 @@ qs(".load-all").addEventListener("click", function (e) {
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(18);
+var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -592,7 +642,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(20)(content, options);
+var update = __webpack_require__(21)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -609,10 +659,10 @@ if(false) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(20)(false);
 // imports
 
 
@@ -623,7 +673,7 @@ exports.push([module.i, "@font-face {\n  font-family: 'bit';\n  src: url(data:ap
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /*
@@ -705,7 +755,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -761,7 +811,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(21);
+var	fixUrls = __webpack_require__(22);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1077,7 +1127,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 
@@ -1172,23 +1222,23 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_fs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_request__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_cheerio__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_cheerio__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cleanarray__ = __webpack_require__(2);
 
 
 
-const db = __webpack_require__(23)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
 
 
 
@@ -1253,56 +1303,6 @@ const db = __webpack_require__(23)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.ho
 });
 
 /***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const Datastore = __webpack_require__(24);
-
-const path = __webpack_require__(4);
-
-module.exports = function (dbBasePath) {
-  const databasePath = function (name) {
-    return path.join(dbBasePath, `_${name}.db`);
-  };
-
-  const db = {
-    wobm: new Datastore({
-      filename: databasePath('wobm'),
-      autoload: true
-    }),
-    webmxyz: new Datastore({
-      filename: databasePath('webmxyz'),
-      autoload: true
-    }),
-    issoutv: new Datastore({
-      filename: databasePath('issoutv'),
-      autoload: true
-    }),
-    _4chan: new Datastore({
-      filename: databasePath('4chan'),
-      autoload: true
-    }),
-    _2chan: new Datastore({
-      filename: databasePath('2chan'),
-      autoload: true
-    }),
-    webmland: new Datastore({
-      filename: databasePath('webmland'),
-      autoload: true
-    }),
-    webmshare: new Datastore({
-      filename: databasePath('webmshare'),
-      autoload: true
-    })
-  };
-  const actions = {};
-
-  __webpack_require__(25)(actions, db);
-
-  return actions;
-};
-
-/***/ }),
 /* 24 */
 /***/ (function(module, exports) {
 
@@ -1361,11 +1361,17 @@ module.exports = (actions, db) => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1379,7 +1385,7 @@ const qsa = e => {
 };
 
 function query4chanAPI(index, array, cb) {
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get('https://a.4cdn.org/wsg/' + index + '.json', (error, response, data) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get('https://a.4cdn.org/wsg/' + index + '.json', (error, response, data) => {
     let arr = [];
     let d = JSON.parse(data);
     console.log(index, d);
@@ -1388,11 +1394,11 @@ function query4chanAPI(index, array, cb) {
       for (let o of i.posts) {
         if (o.ext === ".webm") {
           db.store('_4chan', {
-            url: "http://may.2chan.net" + i,
+            url: "http://i.4cdn.org/wsg/" + o.tim + o.ext,
             nsfw: false,
             tags: [],
             hash: null,
-            local: '/medias/4chan/' + i.split('/').pop()
+            local: '/medias/4chan/' + o.tim + o.ext
           }).then(data => {
             console.log(data);
           }).catch(e => {
@@ -1431,11 +1437,17 @@ function query4chanAPI(index, array, cb) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1449,7 +1461,7 @@ const qsa = e => {
 };
 
 function querynsfw4chanAPI(index, array, cb) {
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get('https://a.4cdn.org/gif/' + index + '.json', (error, response, data) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get('https://a.4cdn.org/gif/' + index + '.json', (error, response, data) => {
     let arr = [];
     let d = JSON.parse(data);
     console.log(index, d);
@@ -1458,6 +1470,17 @@ function querynsfw4chanAPI(index, array, cb) {
       for (let o of i.posts) {
         if (o.ext === ".webm") {
           arr.push("http://i.4cdn.org/gif/" + o.tim + o.ext);
+          db.store('_4chan', {
+            url: "http://i.4cdn.org/gif/" + o.tim + o.ext,
+            nsfw: true,
+            tags: [],
+            hash: null,
+            local: '/medias/4chan/' + o.tim + o.ext
+          }).then(data => {
+            console.log(data);
+          }).catch(e => {
+            console.log(e);
+          });
         }
       }
     }
@@ -1490,11 +1513,17 @@ function querynsfw4chanAPI(index, array, cb) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1510,9 +1539,9 @@ const qsa = e => {
 /* harmony default export */ __webpack_exports__["a"] = (function (playlist, cb) {
   console.log('nsfw issou filling');
   let requestindex = 0;
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get("http://issoutv.com/videos/category/18", (error, response, html) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get("http://issoutv.com/videos/category/18", (error, response, html) => {
     if (!error) {
-      let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+      let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
       let arr = $('.v-pagination li a').map(function (i, el) {
         return $(el).html();
       }).get();
@@ -1535,12 +1564,12 @@ const qsa = e => {
       let webmsarrays = [];
 
       for (let pageurl of issoupages) {
-        __WEBPACK_IMPORTED_MODULE_0_request___default.a.get(pageurl, (error, response, html) => {
+        __WEBPACK_IMPORTED_MODULE_1_request___default.a.get(pageurl, (error, response, html) => {
           console.log("issou/" + pageurl);
 
           if (!error) {
             // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
-            let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+            let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
             var allLinks = $('video').map(function (i, el) {
               console.log("===", el.children[0].attribs.src, "++++");
               return el.children[0].attribs.src;
@@ -1555,6 +1584,17 @@ const qsa = e => {
                 console.log(i.split('.webm')[1]);
 
                 if (i.split('.webm')[1] != undefined) {
+                  db.store('_issoutv', {
+                    url: "http://issoutv.com" + i,
+                    nsfw: true,
+                    tags: [],
+                    hash: null,
+                    local: '/medias/issoutv/' + i.split('/').pop()
+                  }).then(data => {
+                    console.log(data);
+                  }).catch(e => {
+                    console.log(e);
+                  });
                   uniqueNames.push("http://issoutv.com" + i);
                 }
               }
@@ -1581,11 +1621,17 @@ const qsa = e => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1601,9 +1647,9 @@ const qsa = e => {
 /* harmony default export */ __webpack_exports__["a"] = (function (playlist, cb) {
   console.log('issou filling');
   let requestindex = 0;
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get("http://issoutv.com/", (error, response, html) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get("http://issoutv.com/", (error, response, html) => {
     if (!error) {
-      let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+      let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
       let arr = $('.v-pagination li a').map(function (i, el) {
         return $(el).html();
       }).get();
@@ -1626,12 +1672,12 @@ const qsa = e => {
       let webmsarrays = [];
 
       for (let pageurl of issoupages) {
-        __WEBPACK_IMPORTED_MODULE_0_request___default.a.get(pageurl, (error, response, html) => {
+        __WEBPACK_IMPORTED_MODULE_1_request___default.a.get(pageurl, (error, response, html) => {
           console.log("issou/" + pageurl);
 
           if (!error) {
             // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
-            let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+            let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
             var allLinks = $('video').map(function (i, el) {
               console.log("===", el.children[0].attribs.src, "++++");
               return el.children[0].attribs.src;
@@ -1646,6 +1692,17 @@ const qsa = e => {
                 console.log(i.split('.webm')[1]);
 
                 if (i.split('.webm')[1] != undefined) {
+                  db.store('_issoutv', {
+                    url: "http://issoutv.com" + i,
+                    nsfw: false,
+                    tags: [],
+                    hash: null,
+                    local: '/medias/issoutv/' + i.split('/').pop()
+                  }).then(data => {
+                    console.log(data);
+                  }).catch(e => {
+                    console.log(e);
+                  });
                   uniqueNames.push("http://issoutv.com" + i);
                 }
               }
@@ -1672,11 +1729,17 @@ const qsa = e => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1692,9 +1755,9 @@ const qsa = e => {
 /* harmony default export */ __webpack_exports__["a"] = (function (playlist, cb) {
   console.log('issou filling');
   let requestindex = 1;
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get("http://webm.land/", (error, response, html) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get("http://webm.land/", (error, response, html) => {
     if (!error) {
-      let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+      let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
       let arr = $('.pagination li a').map(function (i, el) {
         return $(el).html();
       }).get();
@@ -1717,12 +1780,12 @@ const qsa = e => {
       let webmsarrays = [];
 
       for (let pageurl of issoupages) {
-        __WEBPACK_IMPORTED_MODULE_0_request___default.a.get(pageurl, (error, response, html) => {
+        __WEBPACK_IMPORTED_MODULE_1_request___default.a.get(pageurl, (error, response, html) => {
           console.log("webm.land/" + pageurl);
 
           if (!error) {
             // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
-            let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+            let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
             var allLinks = $('.webms a').map(function (i, el) {
               console.log("===", el.attribs.href, "++++");
               return el.attribs.href;
@@ -1737,6 +1800,17 @@ const qsa = e => {
             var uniqueNames = [];
 
             for (let i of webms) {
+              db.store('_webmland', {
+                url: "http://webm.land/media/" + i + '.webm',
+                nsfw: false,
+                tags: [],
+                hash: null,
+                local: '/medias/webmland/' + i + '.webm'
+              }).then(data => {
+                console.log(data);
+              }).catch(e => {
+                console.log(e);
+              });
               uniqueNames.push("http://webm.land/media/" + i + '.webm');
             }
 
@@ -1761,11 +1835,17 @@ const qsa = e => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -1784,12 +1864,12 @@ const qsa = e => {
   let idx = 1;
 
   for (let o = 1; o <= 500; o++) {
-    __WEBPACK_IMPORTED_MODULE_0_request___default.a.get('https://webmshare.com/uploads/latest?page=' + o, (error, response, html) => {
+    __WEBPACK_IMPORTED_MODULE_1_request___default.a.get('https://webmshare.com/uploads/latest?page=' + o, (error, response, html) => {
       idx++;
       console.log(o);
 
       if (!error) {
-        let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+        let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
         let arr = $('.thumbnail').map(function (i, el) {
           return $(el).attr('href');
         }).get();
@@ -1801,9 +1881,20 @@ const qsa = e => {
 
           for (let u of uniquepages) {
             webms.push('https://s1.webmshare.com' + u + '.webm');
+            db.store('_webmshare', {
+              url: 'https://s1.webmshare.com' + u + '.webm',
+              nsfw: false,
+              tags: [],
+              hash: null,
+              local: '/medias/webmshare/' + u
+            }).then(data => {
+              console.log(data);
+              cb(webms);
+            }).catch(e => {
+              console.log(e);
+              cb(webms);
+            });
           }
-
-          cb(webms);
         }
       }
     });
@@ -1815,14 +1906,19 @@ const qsa = e => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_os__);
 
 
 
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_3_os___default.a.homedir() + '/Documents/webmtv/db/');
 
 const Y = a => (a => a(a))(b => a(a => b(b)(a)));
 
@@ -1917,6 +2013,17 @@ function scrap(url, next) {
               console.log(o, requestindex2, url);
 
               if (url) {
+                db.store('_wobm', {
+                  url: url,
+                  nsfw: false,
+                  tags: [],
+                  hash: null,
+                  local: '/medias/wobm/' + url.split('/').pop()
+                }).then(data => {
+                  console.log(data);
+                }).catch(e => {
+                  console.log(e);
+                });
                 webms.push(url);
               }
 
@@ -1979,11 +2086,17 @@ function scrap(url, next) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_request__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cleanarray__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_os__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_request___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_request__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cheerio__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cleanarray__ = __webpack_require__(2);
+
+
+const db = __webpack_require__(3)(__WEBPACK_IMPORTED_MODULE_0_os___default.a.homedir() + '/Documents/webmtv/db/');
+
 
 
 
@@ -2002,15 +2115,15 @@ const qsa = e => {
 /* harmony default export */ __webpack_exports__["a"] = (function (playlist, cb) {
   console.log('webm.xyz filling');
   let webmz = [];
-  __WEBPACK_IMPORTED_MODULE_0_request___default.a.get("https://webm.xyz/", (error, response, html) => {
+  __WEBPACK_IMPORTED_MODULE_1_request___default.a.get("https://webm.xyz/", (error, response, html) => {
     if (!error) {
-      let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+      let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
       let pagesmax = $('#pagination').data('pages');
       console.log(pagesmax);
       let o = Number(pagesmax);
       let fn = Y(fn => () => {
         console.log(o);
-        __WEBPACK_IMPORTED_MODULE_0_request___default.a.get({
+        __WEBPACK_IMPORTED_MODULE_1_request___default.a.get({
           url: "https://webm.xyz/page/" + o,
           headers: {
             'X-Requested-With': 'XMLHttpRequest',
@@ -2019,10 +2132,21 @@ const qsa = e => {
           timeout: 1200
         }, (error, response, html) => {
           if (!error) {
-            let $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(html);
+            let $ = __WEBPACK_IMPORTED_MODULE_2_cheerio___default.a.load(html);
             $('.webm-list-item').each(function (i, elem) {
               webmz.push('https://ungern.webm.xyz/' + elem.attribs["data-href"].split('webm/')[1] + '.webm');
-              console.log('https://ungern.webm.xyz/' + elem.attribs["data-href"].split('webm/')[1] + '.webm'); //console.log(elem.data('href'))
+              console.log('https://ungern.webm.xyz/' + elem.attribs["data-href"].split('webm/')[1] + '.webm');
+              db.store('_webmshare', {
+                url: 'https://ungern.webm.xyz/' + elem.attribs["data-href"].split('webm/')[1] + '.webm',
+                nsfw: false,
+                tags: [],
+                hash: null,
+                local: '/medias/webmxyz/' + elem.attribs["data-href"] + '.webm'
+              }).then(data => {
+                console.log(data);
+              }).catch(e => {
+                console.log(e);
+              }); //console.log(elem.data('href'))
             }); //      for(let i of els){
             // console.log(i.get(0).attribs)
             //

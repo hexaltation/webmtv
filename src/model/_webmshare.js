@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';
@@ -30,8 +33,23 @@ idx++;
           console.log(uniquepages)
           for(let u of uniquepages){
             webms.push('https://s1.webmshare.com'+u+'.webm')
+            db.store('_webmshare',{
+
+              url:'https://s1.webmshare.com'+u+'.webm',
+              nsfw:false,
+              tags:[],
+              hash:null,
+              local:'/medias/webmshare/'+u
+
+            }).then(data=>{
+              console.log(data)
+                cb(webms)
+            }).catch(e=>{
+              console.log(e)
+                cb(webms)
+            })
           }
-          cb(webms)
+
 
         }
   }

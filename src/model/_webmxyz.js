@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 const Y = a=>(a=>a(a))(b=>a(a=>b(b)(a)));
@@ -41,6 +44,22 @@ console.log(o)
       $('.webm-list-item').each(function(i, elem) {
         webmz.push('https://ungern.webm.xyz/'+elem.attribs["data-href"].split('webm/')[1]+'.webm')
         console.log('https://ungern.webm.xyz/'+elem.attribs["data-href"].split('webm/')[1]+'.webm')
+        db.store('_webmshare',{
+
+          url:'https://ungern.webm.xyz/'+elem.attribs["data-href"].split('webm/')[1]+'.webm',
+          nsfw:false,
+          tags:[],
+          hash:null,
+          local:'/medias/webmxyz/'+elem.attribs["data-href"]+'.webm'
+
+        }).then(data=>{
+          console.log(data)
+
+        }).catch(e=>{
+          console.log(e)
+
+        })
+
         //console.log(elem.data('href'))
 
 });

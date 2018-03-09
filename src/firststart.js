@@ -13,24 +13,24 @@ if(!err){
 }
 });
 }
-if(!fs.existsSync(os.homedir()+'/Documents/webmtv/db/.db')){
-  mkdirp(os.homedir()+'/Documents/webmtv/db/.db', function(err) {
+if(!fs.existsSync(os.homedir()+'/Documents/webmtv/db/')){
+  mkdirp(os.homedir()+'/Documents/webmtv/db/', function(err) {
 if(!err){
-  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/.db', JSON.stringify([]));
+//  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/_we.db', JSON.stringify([]));
 }
 });
 }
-if(!fs.existsSync(os.homedir()+'/Documents/webmtv/medias/.medias')){
-  mkdirp(os.homedir()+'/Documents/webmtv/medias/.medias', function(err) {
+if(!fs.existsSync(os.homedir()+'/Documents/webmtv/medias/')){
+  mkdirp(os.homedir()+'/Documents/webmtv/medias/', function(err) {
 if(!err){
-  fs.writeFileSync(os.homedir()+'/Documents/webmtv/medias/.medias', JSON.stringify([]));
+//  fs.writeFileSync(os.homedir()+'/Documents/webmtv/medias/.medias', JSON.stringify([]));
 }
 });
 }
-if(!fs.existsSync(os.homedir()+'/Documents/webmtv/encoded/.encoded')){
-  mkdirp(os.homedir()+'/Documents/webmtv/encoded/.encoded', function(err) {
+if(!fs.existsSync(os.homedir()+'/Documents/webmtv/encoded/')){
+  mkdirp(os.homedir()+'/Documents/webmtv/encoded/', function(err) {
 if(!err){
-  fs.writeFileSync(os.homedir()+'/Documents/webmtv/encoded/.encoded', JSON.stringify([]));
+  //fs.writeFileSync(os.homedir()+'/Documents/webmtv/encoded/.encoded', JSON.stringify([]));
 }
 });
 }

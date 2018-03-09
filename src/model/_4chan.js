@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';

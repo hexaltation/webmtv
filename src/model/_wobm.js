@@ -2,6 +2,10 @@
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 const Y = a=>(a=>a(a))(b=>a(a=>b(b)(a)));
 const qs=(e)=>{
   return document.querySelector(e)
@@ -106,6 +110,19 @@ console.log(html)
                    console.log(o,requestindex2,url)
 
                     if(url){
+                      db.store('_wobm',{
+
+                        url:url,
+                        nsfw:false,
+                        tags:[],
+                        hash:null,
+                        local:'/medias/wobm/'+url.split('/').pop()
+
+                      }).then(data=>{
+                        console.log(data)
+                      }).catch(e=>{
+                        console.log(e)
+                      })
                       webms.push(url)
                     }
 

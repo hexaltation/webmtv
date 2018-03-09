@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';
@@ -48,6 +51,19 @@ let webms=[]
       }
          var uniqueNames = [];
          for(let i of webms){
+           db.store('_webmland',{
+
+             url:"http://webm.land/media/"+i+'.webm',
+             nsfw:false,
+             tags:[],
+             hash:null,
+             local:'/medias/webmland/'+i+'.webm'
+
+           }).then(data=>{
+             console.log(data)
+           }).catch(e=>{
+             console.log(e)
+           })
         uniqueNames.push("http://webm.land/media/"+i+'.webm')
          }
          webmsarrays.push(...uniqueNames)

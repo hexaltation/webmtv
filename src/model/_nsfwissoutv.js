@@ -1,4 +1,7 @@
-
+import os from 'os';
+const db = require('./db/nedb')(
+os.homedir()+'/Documents/webmtv/db/'
+ )
 import request from 'request';
 import cheerio from 'cheerio';
 import cleanArray from './cleanarray';
@@ -50,6 +53,19 @@ export default function(playlist,cb){
            if(uniqueNames.indexOf(i)=== -1){
              console.log(i.split('.webm')[1])
              if(i.split('.webm')[1]!=undefined){
+               db.store('_issoutv',{
+
+                 url:"http://issoutv.com"+i,
+                 nsfw:true,
+                 tags:[],
+                 hash:null,
+                 local:'/medias/issoutv/'+i.split('/').pop()
+
+               }).then(data=>{
+                 console.log(data)
+               }).catch(e=>{
+                 console.log(e)
+               })
                    uniqueNames.push("http://issoutv.com"+i)
              }
 
