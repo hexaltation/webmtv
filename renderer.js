@@ -9,6 +9,7 @@ const fs = require('fs');
 
 const http = require('http-https');
 const fileType = require('file-type');
+const download=require('./download.js')
 
 let globalarray = []
 let globalindex = 0;
@@ -159,6 +160,10 @@ function play() {
       //=> {ext: 'gif', mime: 'image/gif'}
       if (fileType(chunk).mime == 'video/webm') {
         qs('video').src = globalarray[globalindex].url
+        if(qs('#autodl').checked){
+      let dl_instance= download.dl(globalarray[globalindex].url,globalarray[globalindex].local,null)
+
+        }
       } else {
         qs('#currentmedia').innerHTML = 'error not a webm  :' + fileType(chunk).mime + ' => next()'
         //next()
@@ -264,6 +269,8 @@ ipcRenderer.on('update-progress', (e, d) => {
   qs(d._class + ' .progress-bar').style.width = d.percent
 
 })
+
+
 
 initcheckboxes()
 askPlaylist()

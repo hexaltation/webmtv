@@ -16,26 +16,9 @@ Support for the following websites:
 
 
 
-
-wip data base
-todo :
-
-nice ui
-encoding with ffmpeg
-better nav logic
-
-
-```js
-
-
-let obj={
-"url":'<file url>',
-"hash":'<file hash>',
-"local":'<local file>',
-"tags":['<tag>','<tag>'],
-
-
-}
-
-
-```
+site scrappers:done
+data base: done
+file download to local :wip renderer js line 164
+ui:todo
+encoding with ffmpeg:todo
+encoding profiles: todo

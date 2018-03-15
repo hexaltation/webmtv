@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "download-file-with-progressbar": "^1.2.3",
     "electron-db": "^0.7.1",
     "file-type": "^7.6.0",
     "http-https": "^1.0.0",
