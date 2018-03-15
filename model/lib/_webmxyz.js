@@ -46,7 +46,7 @@ console.log(o)
           nsfw:false,
           tags:[],
           hash:null,
-          local:'/medias/webmxyz/'+elem.attribs["data-href"]+'.webm'
+          local:'/medias/'+elem.attribs["data-href"]+'.webm'
 
         }).then(data=>{
           console.log(data)

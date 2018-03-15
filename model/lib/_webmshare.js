@@ -35,7 +35,7 @@ idx++;
               nsfw:false,
               tags:[],
               hash:null,
-              local:'/medias/webmshare/'+u
+              local:'/medias/'+u
 
             }).then(data=>{
               console.log(data)

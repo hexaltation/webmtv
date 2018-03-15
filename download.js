@@ -7,7 +7,7 @@ lib.dl=(input,target,el)=>{
 
 
 option = {
-    filename: 'the filename to store, default = path.basename(YOUR_URL) || "unknowfilename"',
+    filename: target.split('/').pop(),
     dir: 'the folder to store, default = os.tmpdir()',
     onDone: (info)=>{
         console.log('done', info);

@@ -25,7 +25,7 @@ function query4chanAPI(index,array,cb){
             nsfw:false,
             tags:[],
             hash:null,
-            local:'/medias/4chan/'+o.tim+o.ext
+            local:'/medias/'+o.tim+o.ext
 
           }).then(data=>{
             console.log(data)

@@ -161,8 +161,11 @@ function play() {
       if (fileType(chunk).mime == 'video/webm') {
         qs('video').src = globalarray[globalindex].url
         if(qs('#autodl').checked){
-      let dl_instance= download.dl(globalarray[globalindex].url,globalarray[globalindex].local,null)
-
+      let dl_instance= download.dl(globalarray[globalindex].url,globalarray[globalindex].local,qs('#status_info'))
+       qs('cancel_dl').removeEventListener("click");
+       qs('cancel_dl').addEventListener('click',()=>{
+         dl_instance.abort()
+       })
         }
       } else {
         qs('#currentmedia').innerHTML = 'error not a webm  :' + fileType(chunk).mime + ' => next()'

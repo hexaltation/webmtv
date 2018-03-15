@@ -42,7 +42,7 @@ module.exports = (db, mainWindow, cb) => {
                 nsfw: false,
                 tags: [],
                 hash: null,
-                local: '/medias/webmland/' + i + '.webm'
+                local: '/medias/' + i + '.webm'
 
               }).then(data => {
                 console.log(data)

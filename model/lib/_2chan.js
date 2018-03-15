@@ -32,7 +32,7 @@ fn = Y(fn => () => {
      nsfw:false,
      tags:[],
      hash:null,
-     local:'/medias/2chan/'+array[index].split('/').pop()
+     local:'/medias/'+array[index].split('/').pop()
 
    }).then(data=>{
      index++

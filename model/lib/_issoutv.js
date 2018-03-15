@@ -53,7 +53,7 @@ module.exports=(db,mainWindow,cb)=>{
                  nsfw:false,
                  tags:[],
                  hash:null,
-                 local:'/medias/issoutv/'+i.split('/').pop()
+                 local:'/medias/'+i.split('/').pop()
 
                }).then(data=>{
                  console.log(data)
