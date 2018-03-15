@@ -13,7 +13,16 @@ if(!err){
 }
 });
 }
+if(!fs.existsSync(path.join(os.homedir(),'/Documents/webmtv/medias/'))){
+  mkdirp(path.join(os.homedir(),'/Documents/webmtv/medias/'), function(err) {
+    console.log(err)
+if(!err){
+//  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/_we.db', JSON.stringify([]));
 
+
+}
+});
+}
 
 
 
