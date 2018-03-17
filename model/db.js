@@ -35,10 +35,10 @@ lib.getPlaylist = () => {
         }
       }
 
-      db.getPlaylist( _search).then(data => {
+      db.getPlaylist(_search).then(data => {
         playlist.push(...data)
         index++;
-        console.log(index,playlist,data)
+        console.log(index, playlist, data)
         if (index === set.length) {
           resolve(playlist)
         }
@@ -112,6 +112,19 @@ lib.scrap = (mainWindow) => {
 
     })
   }
+
+}
+
+lib.tree = (srch) => {
+
+return new Promise((resolve,reject)=>{
+
+  db.tree(srch).then(data=>{
+    resolve(data)
+  })
+})
+
+  console.log("=========", srch)
 
 }
 

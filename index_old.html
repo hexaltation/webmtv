@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WEBMTV</title>
+
+    <link  rel="stylesheet" href="./main.css" />
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="main">
+  <div class="left">
+
+
+<div class="player">
+    <video controls></video>
+</div>
+<div id="ctrlz">
+
+
+    <div class="videoControl">
+  <div id="seekbar">
+    <span></span>
+  </div>
+  <div id="align">
+
+  <span class="playBtn playctrl"></span>
+  <span>auto download<input id="autodl" type="checkbox" /></span>
+  <button class="dlBtn dlctrl">download</button>
+    <button id="cancel_dl" class="dlBtn dlctrl">cancel dl</button>
+
+  <button class="convertBtn dlctrl">convert</button>
+
+  <select>
+<option value="mp4">
+  mp4
+</option>
+<option value="mov">
+  mov
+</option>
+<option value="avi">
+  avi
+</option>
+<option value="gif">
+  gif
+</option>
+  </select>
+
+</div>
+  <span id="seekbar"></span>
+<!--  <span id="fullButton"></span>-->
+
+  <div class="currentdata">
+    <div id="currentmedia">
+
+    </div >
+    <div class="playlist-position">
+    </div>
+    </div>
+    <div class="progress-wrap  load-all" >
+      <div class="progress-bar progress"></div>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+      <div class="infos rigth">
+
+        <button id="loadplaylist">load playlist</button>
+
+
+                <button id="scrap">scrap</button>
+<ul>
+  <li>
+  <div class="title-ctrl">
+      <span>2chan</span><input type="checkbox"  id='do2chan'/>
+  </div>
+    <div class="progress-wrap  load-2chan" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>4chan</span><input type="checkbox"  id='do4chan'/>
+  </div>
+    <div class="progress-wrap progress load-4chan" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>4chan nsfw</span><input type="checkbox"  id='donsfw4chan'/>
+  </div>
+  <div class="progress-wrap progress load-nsfw4chan" >
+    <div class="progress-bar progress"></div>
+  </div>
+
+
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>webmland</span><input type="checkbox"  id='dowebmland'/>
+  </div>
+    <div class="progress-wrap progress load-webmland" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>webmshare</span><input type="checkbox"  id='dowebmshare'/>
+  </div >
+    <div class="progress-wrap progress load-webmshare" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>wobm</span><input type="checkbox"  id='dowobm'/>
+  </div>
+    <div class="progress-wrap progress load-wobm" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+  <li>
+  <div class="title-ctrl">
+      <span>issoutv</span><input type="checkbox"  id='doissoutv'/>
+  </div>
+    <div class="progress-wrap progress load-issoutv" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+  <li>
+  <div class="title-ctrl">
+      <span>issoutv nsfw</span><input type="checkbox"  id='donsfwissoutv'/>
+  </div>
+    <div class="progress-wrap progress load-issoutvnsfw" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+  <li>
+  <div class="title-ctrl">
+      <span>webm.xyz</span><input type="checkbox"  id='dowebmxyz'/>
+  </div>
+    <div class="progress-wrap progress load-webmxyz" >
+      <div class="progress-bar progress"></div>
+    </div>
+
+  </li>
+
+
+
+</ul>
+    </div>
+</div>
+
+  </div>
+  <div id="status_info">
+
+  </div>
+
+
+<script src="renderer.js"></script>
+</body>
+</html>

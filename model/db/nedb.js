@@ -9,7 +9,6 @@ if(!fs.existsSync(path.join(os.homedir(),'/Documents/webmtv/db/'))){
 if(!err){
 //  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/_we.db', JSON.stringify([]));
 
-
 }
 });
 }
@@ -19,13 +18,9 @@ if(!fs.existsSync(path.join(os.homedir(),'/Documents/webmtv/medias/'))){
 if(!err){
 //  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/_we.db', JSON.stringify([]));
 
-
 }
 });
 }
-
-
-
 
 
   const databasePath = function(name){
@@ -37,10 +32,8 @@ if(!err){
 
   }
 
-
-
   const actions = {};
   require('./actions')(actions, db)
 
-console.log(actions)
+
 module.exports = actions

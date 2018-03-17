@@ -7,7 +7,8 @@
   "homepage": "https://github.com/AZOPCORP/webmtv",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "css": "node-sass --include-path scss scss/index.scss   style.css"
   },
   "repository": "https://github.com/AZOPCORP/webmtv",
   "keywords": [
@@ -25,6 +26,7 @@
     "cheerio": "^1.0.0-rc.2",
     "download-file-with-progressbar": "^1.2.3",
     "electron-db": "^0.7.1",
+    "ffmpeg-static": "^2.2.0",
     "file-type": "^7.6.0",
     "http-https": "^1.0.0",
     "mkdirp": "latest",

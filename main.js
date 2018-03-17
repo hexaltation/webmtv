@@ -3,14 +3,13 @@ const {app,ipcMain,BrowserWindow} = require('electron')
 // Module to control application life.
 const settings= require('./model/settings');
 
-
+const makeThumbs=require('./video_engine/thumb')
 const path = require('path')
 const url = require('url')
 
 
 
 const db = require('./model/db')
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -33,11 +32,11 @@ function createWindow () {
 
   // Open the DevTools.
    mainWindow.webContents.openDevTools()
-   setTimeout(()=>{
-      db.getPlaylist().then(data=>{
-          mainWindow.webContents.send('gotplaylist' , data);
-      })
-   },5000)
+  //  setTimeout(()=>
+  //     db.getPlaylist().then(data=>{
+  //         mainWindow.webContents.send('gotplaylist' , data);
+  //     })
+  //  },5000)
 
 
   // Emitted when the window is closed.
@@ -84,7 +83,7 @@ mainWindow.webContents.send('grabed-settings',settings.get())
 })
 ipcMain.on('store-settings', (event, data)=>{
   console.log('================================================store settings')
-  console.log(data)
+
 settings.store(data)
 
 
@@ -96,14 +95,28 @@ settings.store(data)
 ipcMain.on('scrap',()=>{
   db.scrap(mainWindow)
 })
+
+ipcMain.on('gettree',(e,data)=>{
+
+
+    db.tree(data).then((obj)=>{
+
+    mainWindow.webContents.send('gottree',obj)
+  }).catch(e=>{
+    console.log(e)
+  })
+})
+
 ipcMain.on('getPlaylist',()=>{
   console.log('===============getPlaylist')
   db.getPlaylist().then(data=>{
-    
+
 mainWindow.webContents.send('gotplaylist',data)
   })
 })
 
+
+ makeThumbs()
 //db.scrap(mainWindow)
 
 

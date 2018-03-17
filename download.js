@@ -1,14 +1,14 @@
 
   const dl = require('download-file-with-progressbar');
-
+const os=require('os')
 lib={}
 
 lib.dl=(input,target,el)=>{
 
 
 option = {
-    filename: target.split('/').pop(),
-    dir: 'the folder to store, default = os.tmpdir()',
+    filename: input.split('/').pop(),
+    dir: os.homedir()+'/Documents/webmtv/medias/',
     onDone: (info)=>{
         console.log('done', info);
     },
@@ -16,11 +16,11 @@ option = {
         console.log('error', err);
     },
     onProgress: (curr, total) => {
-        console.log('progress', (curr / total * 100).toFixed(2) + '%');
+        el.innerHTML=('progress', (curr / total * 100).toFixed(2) + '%');
     },
 }
 
-var dd = dl('YOUR_URL', option);
+var dd = dl(input, option);
 return dd;
 }
 

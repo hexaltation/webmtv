@@ -10,6 +10,13 @@ if(!err){
 }
 });
 }
+if(!fs.existsSync(os.homedir()+'/Documents/webmtv/thumb')){
+  mkdirp(os.homedir()+'/Documents/webmtv/thumb', function(err) {
+if(!err){
+
+}
+});
+}
 
 let lib={}
 

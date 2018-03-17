@@ -1,6 +1,13 @@
 
 module.exports=(actions,db)=>{
 
+
+
+
+
+
+
+
    actions.getPlaylist=(o)=>{
 
      return new Promise((resolve,reject)=>{
@@ -68,6 +75,36 @@ console.log(err,d)
     })
   }
 
+
+
+
+
+    actions.tree=(srch) => {
+
+
+return new Promise((resolve, reject) => {
+  let obj = []
+  let idx = 0
+  for (let u of srch) {
+    db.playlist.find({
+      site: u.site,
+      nsfw: u.nsfw
+    }, (err, doc) => {
+
+      idx++;
+      let key = {}
+      key.name = u.site
+      key.items=doc
+      obj.push(key)
+      if (idx >= srch.length) {
+    
+        resolve(obj)
+      }
+    })
+
+  }
+})
+    }
 
 
 }
