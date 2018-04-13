@@ -12,8 +12,15 @@ let globalarray = []
 let globalindex = 0;
 const app = remote.app;
 const {qs,qsa,drawtags,build}=require('./frontend/common.js')
-require('./frontend/tabpannel')(qs,qsa)
+require('./frontend/tabpannel')()
+require('./frontend/exports')()
+require('./frontend/scrapper_ctrlz')()
+require('./frontend/playlist')(globalarray,globalindex)
+require('./frontend/player')(globalarray,globalindex)
 const {build_tree,init_tree_event}=require('./frontend/browse_tree')
+
+
+
 
 //////
 /// BROWSER LOGIC

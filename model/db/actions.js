@@ -3,7 +3,37 @@ module.exports=(actions,db)=>{
 
 
 
+actions.remove=(o)=>{
+console.log(o)
+return new Promise((resolve,reject)=>{
+  db.playlist.find({
+  url:o.url
 
+  },(err,docs)=>{
+console.log(err,docs)
+if(docs.length>0){
+
+  db.playlist.remove({ url:o.url }, {}, function (err, numRemoved) {
+
+    console.log(err,numRemoved)
+    resolve()
+    // numRemoved = 1
+  });
+
+}else{
+  reject()
+}
+
+
+  //  resolve(docs)
+  })
+
+
+
+})
+
+
+}
 
 
 
@@ -97,7 +127,7 @@ return new Promise((resolve, reject) => {
       key.items=doc
       obj.push(key)
       if (idx >= srch.length) {
-    
+
         resolve(obj)
       }
     })

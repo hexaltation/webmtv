@@ -128,4 +128,18 @@ return new Promise((resolve,reject)=>{
 
 }
 
+
+lib.remove=(data)=>{
+return new Promise((resolve,reject)=>{
+
+db.remove(data).then(()=>{
+  resolve()
+}).catch(()=>{
+  reject()
+})
+
+})
+
+}
+
 module.exports = lib;

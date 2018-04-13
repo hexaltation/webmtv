@@ -1,4 +1,5 @@
-module.exports=(qs,qsa)=>{
+const {qs,qsa,drawtags,build,hasClass}=require('./common.js')
+module.exports=()=>{
   // Define variables
   const tabLabels = qsa("#tabs li");
   const tabPanes =qsa(".tab-contents");

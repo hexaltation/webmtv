@@ -116,7 +116,18 @@ mainWindow.webContents.send('gotplaylist',data)
 })
 
 
- makeThumbs()
+
+ipcMain.on('removeURL',(e,data)=>{
+
+db.remove(data).then(()=>{
+
+}).catch(e=>{
+  console.log(e)
+})
+
+})
+
+ //makeThumbs()
 //db.scrap(mainWindow)
 
 
