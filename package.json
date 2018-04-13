@@ -32,6 +32,7 @@
     "file-type": "^7.6.0",
     "http-https": "^1.0.0",
     "mkdirp": "latest",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "web-audio-peak-meter": "^1.0.0"
   }
 }

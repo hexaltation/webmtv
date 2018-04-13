@@ -3,8 +3,27 @@ const {remote, ipcRenderer} = require("electron");
 const canvas=qs('canvas')
 const video=qs('video')
 const ctx    = canvas.getContext('2d');
+const meter = require('./audiometer')
+let gainNode
 
 module.exports=()=>{
+
+
+function initAudio(){
+    const Audioctx = new (window.AudioContext)
+    // Feed the HTMLMediaElement into it
+    let source = Audioctx.createMediaElementSource(video);
+
+// Create a gain node
+ gainNode = Audioctx.createGain();
+source.connect(gainNode);
+
+gainNode.connect(Audioctx.destination);
+let meterNode = meter.createMeterNode(gainNode, Audioctx);
+meter.createMeter(qs('.meter'), meterNode, {});
+qs('#volume_ctrl').value=gainNode.gain.value
+  }
+  initAudio()
 
 function drawLoop(){
  ctx.drawImage(video, 0, 0);
@@ -19,6 +38,12 @@ drawLoop()
     play()
   }
 
+
+qs('#volume_ctrl').addEventListener('input',(e)=>{
+
+gainNode.gain.value=e.target.value
+
+})
   qs('video').addEventListener('error', (e, d) => {
     //  qs('video').removeEventListener('error');
     console.log(e, d)
