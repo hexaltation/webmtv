@@ -11,12 +11,16 @@
 <body>
 <div class="container">
 <nav id="tabs">
+  <button id="loadplaylist">load playlist</button>
+  <ul>
+
 
   <li class="active"><a href="#tab3">browse</a></li>
   <li><a href="#tab1">scrapper</a></li>
   <li><a href="#tab2">infos</a></li>
 
   <li><a href="#tab4">export</a></li>
+    </ul>
 </nav>
 <section id="tab-contents">
 <div id="tab4" class="tab-contents ">
@@ -198,8 +202,8 @@
 
 </section>
 
-<section id="player">
-  <button id="loadplaylist">load playlist</button>
+<section class="player">
+
 <canvas id="output"></canvas>
   <video id="video"></video>
   <div id="ctrlz">

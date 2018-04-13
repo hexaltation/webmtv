@@ -1,10 +1,18 @@
 const {qs,qsa,drawtags,build}=require('./common.js')
 const {remote, ipcRenderer} = require("electron");
-
-
-
+const canvas=qs('canvas')
+const video=qs('video')
+const ctx    = canvas.getContext('2d');
 
 module.exports=()=>{
+
+function drawLoop(){
+ ctx.drawImage(video, 0, 0);
+
+  requestAnimationFrame(drawLoop)
+}
+
+drawLoop()
 
   function random() {
     globalindex = Math.floor(Math.random() * (globalarray.length - 1));
@@ -51,14 +59,16 @@ module.exports=()=>{
   });
 
   qs('video').addEventListener("loadedmetadata", function(e) {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
     //  qs('video').removeEventListener('loadedmetadata');
     if (this.videoHeight > this.videoWidth) {
-      qs('video').classList.remove('normal')
-      qs('video').classList.add('phone')
+      qs('canvas').classList.remove('normal')
+      qs('canvas').classList.add('phone')
     } else {
 
-      qs('video').classList.remove('phone')
-      qs('video').classList.add('normal')
+      qs('canvas').classList.remove('phone')
+      qs('canvas').classList.add('normal')
     }
   }, false);
 
