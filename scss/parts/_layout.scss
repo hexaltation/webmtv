@@ -1,0 +1,16 @@
+body {
+  background: #000;
+  color: $activeColor;
+  font-family: 'bit';
+
+  a {
+    color: lime;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 250px 250px auto auto;
+  grid-auto-rows: minmax(0px, auto);
+  grid-template-areas: "head head head head" "aside aside main main" "aside aside main main" "aside aside main main" "aside aside main main" "aside aside main main";
+}

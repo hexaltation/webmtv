@@ -1,0 +1,38 @@
+
+#tabs {
+  list-style-type: none;
+  grid-area:head;
+  li {
+    display: inline-block;
+    margin-bottom: -1px;
+    a {
+      display: block;
+      height: 25px;
+
+
+      border: 1px solid lime;
+
+      text-align: center;
+    }
+    &:hover a,
+    &.active a {
+      background-color: #030;
+    }
+  }
+}
+
+#tab-contents {
+  border: 1px solid lime;
+background-color: #030;
+  grid-area:aside;
+  .tab-contents {
+
+    display: none;
+
+    &.active {
+      display: block;
+      height:100%;
+      width:100%;
+    }
+  }
+}

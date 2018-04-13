@@ -1,0 +1,85 @@
+
+ ul {
+
+  margin: 0;
+  background:transparent;
+  padding-left: 3rem;
+  list-style: none;
+  line-height: 1.25;
+  position: relative;
+  overflow: hidden;
+  color:lime;
+}
+
+.file-tree li:not(:last-child) > ul::before {
+  content: '\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020\2502\0020';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1em;
+}
+
+.file-tree > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.file-tree li {
+
+  position: relative;
+}
+
+.file-tree li::before {
+  content: '\251C\2500\2500\0020';
+}
+
+.file-tree li:last-child::before {
+  content: '\2514\2500\2500\0020';
+}
+.file-tree{
+  display:inline-block;
+  height:300px;
+  width:250px;
+  overflow-y:scroll;
+
+}
+
+.closed{
+
+  ul{
+    display:none;
+  }
+}
+
+#browse_info{
+
+   display:inline-block;
+  height:300px;
+  width:240px;
+ float:right;
+  border:1px solid red;
+
+    text-align:center;
+   img{
+    position:relative;
+    display:block;
+    left:38px;
+    top:5px;
+    padding:auto;
+    width:160px;
+    height:120px;
+  }
+
+  p{
+    position:relative;
+    display:block;
+    width:230px;
+    height:160px;
+    left:4px;
+    border:1px solid red;
+    overflow-y:scroll;
+
+  }
+
+}

@@ -20,11 +20,13 @@
   ],
   "license": "WTFPL",
   "devDependencies": {
-    "electron": "latest"
+    "electron": "latest",
+    "node-sass": "^4.8.3"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "download-file-with-progressbar": "^1.2.3",
+    "ejs": "^2.5.8",
     "electron-db": "^0.7.1",
     "ffmpeg-static": "^2.2.0",
     "file-type": "^7.6.0",
