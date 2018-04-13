@@ -2,10 +2,11 @@
 const {app,ipcMain,BrowserWindow} = require('electron')
 // Module to control application life.
 const settings= require('./model/settings');
-
+const ejs = require('ejs')
 const makeThumbs=require('./video_engine/thumb')
 const path = require('path')
 const url = require('url')
+const fs = require('fs')
 
 
 
@@ -20,13 +21,23 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
+  ejs.renderFile('./html/index.ejs', {}, {}, function(err, str){
 
+    fs.writeFile('html.html', str, (err) => {
+      if (err) throw err;
+      mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, 'html.html'),
+      protocol: 'file:',
+      slashes: true
+    }))
+
+    });
+
+
+    // str => Rendered HTML string
+});
   // and load the index.html of the app.
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+
 
 
 
