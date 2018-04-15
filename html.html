@@ -11,15 +11,18 @@
 <body>
 <div class="container">
 <nav id="tabs">
-  <button id="loadplaylist">load playlist</button>
+  <button id="loadplaylist">load</button>
   <ul>
 
 
-  <li class="active"><a href="#tab3">browse</a></li>
+
   <li><a href="#tab1">scrapper</a></li>
   <li><a href="#tab2">infos</a></li>
-
+  <li class="active"><a href="#tab3">browse</a></li>
   <li><a href="#tab4">export</a></li>
+  <li><a href="#tab5">options</a></li>
+  <li><a href="#tab6">glitch</a></li>
+  <li><a href="#tab7">broadcast</a></li>
     </ul>
 </nav>
 <section id="tab-contents">
@@ -200,6 +203,25 @@
     </ul>
 </div>
 
+<div id="tab5" class="tab-contents ">
+  auto dl files:
+<input type="checkbox" id="autodl" />
+
+<button id="select_working_dir">set working dir</button>
+<div id='workingdir'>
+
+</div>
+
+  </div>
+
+<div id="tab6" class="tab-contents ">
+glitch
+  </div>
+
+<div id="tab7" class="tab-contents ">
+broadcast
+  </div>
+
 </section>
 
 <section class="player">
@@ -207,66 +229,46 @@
   <canvas id="output"></canvas>
     <video id="video"></video>
 </div>
-<div class="audio">
+<div id="progress_wrap">
+  <div id="progress_load">
+</div>
+  <div id="progress_play">
+</div>
+</div> 
+<div id="player_buttons">
+  <i class="prev" id="prev"></i>
+  <i class="play" id="playpause"></i>
+  <i class="next" id="next"></i>
+  <i class=""></i>
+  <div class="ctrla">
+    <div class="ctrlb"></div>
+  </div>
+
+</div>
+
+
+
+<div class="currentdata">
+  <div id="currentmedia">
+
+  </div>
+  <div class="playlist-position">
+  </div>
+</div>
+<div class="progress-wrap  load-all">
+  <div class="progress-bar progress"></div>
+</div>
+
+
+</section>
+
+<section id="audio">
   <div class="meter">
 
   </div>
 
   <input type="range" min="0" max="1" step="0.01" id="volume_ctrl"/>
-</div>
-
-  <div id="ctrlz">
-
-
-      <div class="videoControl">
-    <div id="seekbar">
-      <span></span>
-    </div>
-    <div id="align">
-
-    <span class="playBtn playctrl"></span>
-    <span>auto download<input id="autodl" type="checkbox" /></span>
-    <button class="dlBtn dlctrl">download</button>
-      <button id="cancel_dl" class="dlBtn dlctrl">cancel dl</button>
-
-    <button class="convertBtn dlctrl">convert</button>
-
-    <select>
-  <option value="mp4">
-    mp4
-  </option>
-  <option value="mov">
-    mov
-  </option>
-  <option value="avi">
-    avi
-  </option>
-  <option value="gif">
-    gif
-  </option>
-    </select>
-
-  </div>
-    <span id="seekbar"></span>
-  <!--  <span id="fullButton"></span>-->
-
-    <div class="currentdata">
-      <div id="currentmedia">
-
-      </div >
-      <div class="playlist-position">
-      </div>
-      </div>
-      <div class="progress-wrap  load-all" >
-        <div class="progress-bar progress"></div>
-      </div>
-  </div>
-  </div>
-
-
-  </div>
 </section>
-
 
 </div>
 

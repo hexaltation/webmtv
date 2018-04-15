@@ -12,6 +12,7 @@ let globalarray = []
 let globalindex = 0;
 const app = remote.app;
 const {qs,qsa,drawtags,build}=require('./frontend/common.js')
+require('./frontend/options')()
 require('./frontend/tabpannel')()
 require('./frontend/exports')()
 require('./frontend/scrapper_ctrlz')()
@@ -28,11 +29,7 @@ const {build_tree,init_tree_event}=require('./frontend/browse_tree')
 
 ipcRenderer.on('gotplaylist', (event, arg) => {
   globalarray.length = 0
-
   globalarray.push(...arg)
-
-
-  console.log('==============', globalarray)
 })
 
 ipcRenderer.on('gottree', (event, arg) => {
@@ -43,40 +40,13 @@ init_tree_event()
   console.log(e)
 })
 
-  console.log('==============', arg)
+
 })
 
 
 ipcRenderer.send('gettree',[{site:"issoutv",nsfw:false},{site:"webmshare",nsfw:false}])
 
-const obj=[
-  {
-    name:"2chan",
-    items:[
-    {
-      url:"url",
-      tags:["tag","tag"]
-    }
-  ]
-},
-   {
-    name:"4chan",
-    items:[
-    {
-      url:"url",
-      tags:["tag","tag"]
-    },
-       {
-      url:"url",
-      tags:["tag","tag"]
-    }, {
-      url:"url",
-      tags:["tag","tag"]
-    }
-      ]
-}
 
- ]
 
 
 

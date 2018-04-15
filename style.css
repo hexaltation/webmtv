@@ -6,7 +6,8 @@
 
 * {
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  user-select: none; }
 
 body {
   background: #000;
@@ -17,13 +18,29 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 120px 500px 520px auto auto;
+  grid-template-columns: 80px 500px 520px 80px;
   grid-auto-rows: minmax(0px, auto);
-  grid-template-areas: "tabz aside main "; }
+  grid-template-areas: "tabz aside main vumeter";
+  border: 2px solid blue;
+  height: 600px; }
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background: #060; }
+
+::-webkit-scrollbar-thumb {
+  background: lime; }
+
+::-webkit-scrollbar-corner {
+  background: #060; }
 
 #tabs {
   list-style-type: none;
-  grid-area: tabz; }
+  grid-area: tabz;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll; }
   #tabs button {
     display: block;
     margin: 0px;
@@ -66,8 +83,9 @@ body {
 
 .player {
   grid-area: main;
-  width: 600px;
-  height: 480px;
+  width: 100%;
+  height: 100%;
+  display: block;
   background: #000;
   text-align: center;
   border: 2px solid lime;
@@ -80,22 +98,19 @@ body {
     width: 100%;
     height: 400px;
     border: 1px solid lime; }
-  .player .audio {
-    display: block;
-    width: 100%; }
-    .player .audio .meter {
-      display: block;
-      height: 50px; }
-    .player .audio input {
-      display: block; }
+  .player canvas {
+    position: relative;
+    max-height: 400px;
+    margin: auto; }
   .player video {
     display: none; }
   .player .normal {
     width: 100%;
-    height: auto; }
+    height: auto;
+    max-height: 400px; }
   .player .phone {
     height: 100%;
-    max-height: 600px;
+    max-height: 400px;
     width: auto; }
 
 .currentdata {
@@ -179,23 +194,23 @@ body {
   display: block;
   color: lime; }
 
-#seekbar {
-  background-color: #000;
+#progress_wrap {
+  cursor: pointer;
   position: relative;
-  height: 5px;
-  width: 100%; }
+  display: block;
+  height: 10px;
+  width: 100%;
+  border: 1px solid lime; }
 
-#seekbar span {
-  background-color: red;
+#progress_load {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 0%; }
+  height: 100%;
+  background: #060; }
 
-/* following rule is for hiding Stack Overflow's console  */
-.as-console-wrapper {
-  display: none !important; }
+#progress_play {
+  position: absolute;
+  height: 100%;
+  background: lime; }
 
 #fullButton {
   float: right;
@@ -237,6 +252,68 @@ body {
     .slider input[type=checkbox]:checked + label {
       left: 25px;
       background: lime; }
+
+#player_buttons {
+  width: 100%;
+  border: 1px solid red;
+  height: 50px; }
+  #player_buttons i {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: white; }
+
+.progress-wrap {
+  background: #000;
+  width: 100%;
+  margin: 0px;
+  overflow: hidden;
+  position: relative;
+  height: 20px;
+  border: 1px solid red; }
+
+.progress-bar {
+  background: #ddd;
+  left: 0;
+  position: relative;
+  height: 100%;
+  width: 0px;
+  top: 0; }
+
+#audio {
+  display: block;
+  grid-area: vumeter;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid orange; }
+  #audio .meter {
+    position: relative;
+    right: 0px;
+    display: block;
+    height: 400px;
+    width: 80px;
+    border: 1px solid red; }
+  #audio input {
+    position: relative;
+    right: 0px;
+    display: block;
+    width: 100%; }
+
+.ctrla {
+  cursor: pointer;
+  display: inline-block;
+  width: 80px;
+  height: 15px;
+  border: 1px solid lime; }
+
+.ctrlb {
+  position: relative;
+  height: 100%;
+  background: lime; }
 
 .scraper {
   margin: 0;
@@ -329,7 +406,7 @@ ul {
 
 .file-tree {
   display: inline-block;
-  height: 300px;
+  height: 100%;
   width: 250px;
   overflow-y: scroll; }
 

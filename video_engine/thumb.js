@@ -1,13 +1,15 @@
 const ffmpeg = require('ffmpeg-static');
 const spawn = require('child_process').spawn;
+const settings=require('electron-settings')
+const db=require('../model/db')
 
-
-module.exports=(input,output)=>{
+module.exports=(input)=>{
 
   return new Promise((resolve,reject)=>{
 
 
-const argz=["-i", input, "-ss", "00:00:01.000" ,"-vframes", "1", output+".png"]
+
+const argz=["-i", input, "-ss", "00:00:01.000" ,"-vframes", "1", Date.now()+".png"]
 const ff = spawn(ffmpeg.path, argz);
 
 ff.stdout.on('data', (data) => {
@@ -20,6 +22,7 @@ ff.stderr.on('data', (data) => {
 
 ff.on('close', (code) => {
   console.log(`child process exited with code ${code}`);
+
   resolve()
 });
 

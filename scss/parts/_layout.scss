@@ -10,8 +10,26 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 120px 500px 520px auto auto;
+  grid-template-columns: 80px 500px 520px 80px;
   grid-auto-rows: minmax(0px, auto);
   grid-template-areas:
-  "tabz aside main " ;
+  "tabz aside main vumeter" ;
+  border:2px solid blue;
+  //width:1280px;
+  height:600px;
+}
+
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    background: #060;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lime;
+
+}
+
+::-webkit-scrollbar-corner {
+    background: #060;
 }

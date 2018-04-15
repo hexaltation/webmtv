@@ -20,7 +20,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 1300, height: 700})
   ejs.renderFile('./html/index.ejs', {}, {}, function(err, str){
 
     fs.writeFile('html.html', str, (err) => {
@@ -87,19 +87,17 @@ app.on('activate', function () {
 ipcMain.on('grab-settings',(event, data)=>{
 
 
-console.log('================================================asking for settings')
 
 mainWindow.webContents.send('grabed-settings',settings.get())
 
 })
 ipcMain.on('store-settings', (event, data)=>{
-  console.log('================================================store settings')
 
 settings.store(data)
 
 
 
-//mainWindow.webContents.send('grabed-setings',settings.get())
+
 
 })
 
@@ -119,7 +117,7 @@ ipcMain.on('gettree',(e,data)=>{
 })
 
 ipcMain.on('getPlaylist',()=>{
-  console.log('===============getPlaylist')
+
   db.getPlaylist().then(data=>{
 
 mainWindow.webContents.send('gotplaylist',data)
@@ -138,6 +136,19 @@ db.remove(data).then(()=>{
 
 })
 
+ipcMain.on('generateThumb',(e,data)=>{
+
+if(data){
+  makeThumbs(data)
+}
+
+})
+ipcMain.on('makeDir',(e,data)=>{
+
+  settings.initDir()
+
+})
+settings.initDir()
  //makeThumbs()
 //db.scrap(mainWindow)
 

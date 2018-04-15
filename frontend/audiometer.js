@@ -16,7 +16,7 @@ var webAudioPeakMeter = (function() {
   var meterHeight;
   var meterWidth;
   var meterTop;
-  var vertical = false;
+  var vertical = true;
   var channelCount = 1;
   var channelMasks = [];
   var channelPeaks = [];
@@ -52,6 +52,7 @@ var webAudioPeakMeter = (function() {
 
   var createContainerDiv = function(parent) {
     var meterElement = document.createElement('div');
+    meterElement.classList.add('meterelem');
     meterElement.style.position = 'relative';
     meterElement.style.width = elementWidth + 'px';
     meterElement.style.height = elementHeight + 'px';
@@ -254,7 +255,7 @@ var webAudioPeakMeter = (function() {
       if (vertical) {
         channelMasks[i].style.height = maskSizes[i] + 'px';
       } else {
-        console.log(maskSizes[i])
+
         channelMasks[i].style.width = maskSizes[i] + 'px';
       }
       channelPeakLabels[i].textContent = textLabels[i];

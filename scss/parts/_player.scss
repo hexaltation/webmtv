@@ -16,11 +16,13 @@
 
 .player{
   grid-area:main;
-  //position:absolute;
-  //display:block;
 
-  width:600px;
-  height: 480px;
+  width:100%;
+  height:100%;
+
+  display:block;
+
+
   background:#000;
   text-align: center;
   border:2px solid lime;
@@ -35,30 +37,25 @@
   border:1px solid lime;
 
 }
-.audio{
-  display:block;
-  width:100%;
-  .meter{
-    display:block;
-    height:50px;
-  }
-  input{
-    display:block;
 
-  }
-
+canvas{
+  position:relative;
+  max-height:400px;
+  margin:auto;
 }
 video{
   display:none;
 }
 .normal{
+
   width:100%;
   height:auto;
+  max-height:400px;
 }
 
 .phone{
   height:100%;
-  max-height:600px;
+  max-height:400px;
   width:auto;
 }
 }
@@ -161,23 +158,28 @@ video{
   display:block;
   color:lime;
 }
-#seekbar {
-  background-color: #000;
-  position: relative;
-  height: 5px;
-  width: 100%;
+#progress_wrap{
+  cursor:pointer;
+  position:relative;
+  display:block;
+  height:10px;
+  width:100%;
+  border:1px solid lime;
+
+}
+#progress_load{
+  position:absolute;
+
+  height:100%;
+  background:#060;
+}
+#progress_play{
+  position:absolute;
+
+  height:100%;
+  background:lime;
 }
 
-#seekbar span {
-  background-color: red;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 0%;
-}
-/* following rule is for hiding Stack Overflow's console  */
-.as-console-wrapper{ display: none !important;}
 
 #fullButton {
   float: right;
@@ -226,4 +228,37 @@ video{
       background:lime;
     }
   }
+}
+
+
+#player_buttons{
+  width:100%;
+  border:1px solid red;
+  height:50px;
+  i{
+    display:inline-block;
+    width: 25px;
+    height:25px;
+    background-color: white;
+  }
+}
+
+
+
+.progress-wrap {
+  background: #000;
+  width: 100%;
+  margin: 0px ;
+  overflow: hidden;
+  position: relative;
+    height: 20px;
+    border:1px solid red;
+}
+ .progress-bar {
+  background: #ddd;
+  left: 0;
+  position: relative;
+  height: 100%;
+  width:0px;
+  top: 0;
 }

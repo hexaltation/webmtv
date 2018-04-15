@@ -66,14 +66,14 @@ lib.build_tree = (obj) => {
 
 
     for (let o of obj) {
-console.log('>=====>',o.items)
+
 
       let childs = "";
 
       for (let u of o.items) {
 
         childs += `<ul>
-  <li class="closed" ><img src="http://via.placeholder.com/32x24">
+  <li class="closed" ><img src="">
   <ul>
   <li style="cursor:pointer;">` + u.url + `</li>
   <li class="editable">tags<ul>` + drawtags(u.tags) + `</ul></li>

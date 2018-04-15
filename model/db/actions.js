@@ -106,7 +106,11 @@ console.log(err,d)
   }
 
 
+actions.insertThumb=(data)=>{
 
+
+
+}
 
 
     actions.tree=(srch) => {

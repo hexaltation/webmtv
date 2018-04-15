@@ -1,13 +1,16 @@
 <nav id="tabs">
-  <button id="loadplaylist">load playlist</button>
+  <button id="loadplaylist">load</button>
   <ul>
 
 
-  <li class="active"><a href="#tab3">browse</a></li>
+
   <li><a href="#tab1">scrapper</a></li>
   <li><a href="#tab2">infos</a></li>
-
+  <li class="active"><a href="#tab3">browse</a></li>
   <li><a href="#tab4">export</a></li>
+  <li><a href="#tab5">options</a></li>
+  <li><a href="#tab6">glitch</a></li>
+  <li><a href="#tab7">broadcast</a></li>
     </ul>
 </nav>
 <section id="tab-contents">
@@ -15,4 +18,7 @@
 <%- include('./filebrowser'); %>
 <%- include('./infos'); %>
 <%- include('./scrapper'); %>
+<%- include('./options'); %>
+<%- include('./glitch'); %>
+<%- include('./broadcast'); %>
 </section>

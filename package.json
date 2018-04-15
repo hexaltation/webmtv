@@ -28,11 +28,11 @@
     "download-file-with-progressbar": "^1.2.3",
     "ejs": "^2.5.8",
     "electron-db": "^0.7.1",
+    "electron-settings": "^3.1.4",
     "ffmpeg-static": "^2.2.0",
     "file-type": "^7.6.0",
     "http-https": "^1.0.0",
     "mkdirp": "latest",
-    "nedb": "^1.8.0",
-    "web-audio-peak-meter": "^1.0.0"
+    "nedb": "^1.8.0"
   }
 }
