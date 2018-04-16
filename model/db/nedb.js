@@ -5,7 +5,7 @@ const fs          = require('fs');
 const mkdirp =  require('mkdirp');
 const settings = require('electron-settings');
 if(!fs.existsSync(settings.get('workingdir')+'/db/')){
-  mkdirp(settings.get('workingdir')+'/db/'), function(err) {
+  mkdirp(settings.get('workingdir')+'/db/', function(err) {
     console.log(err)
 if(!err){
 //  fs.writeFileSync(os.homedir()+'/Documents/webmtv/db/_we.db', JSON.stringify([]));
