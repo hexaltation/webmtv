@@ -5,9 +5,17 @@ const video = qs('video')
 const ctx = canvas.getContext('2d');
 const meter = require('./audiometer')
 const volctrl = require('./volume_ctrl')
+let pc1;
+let pc2;
+let offerOptions = {
+  offerToReceiveAudio: 1,
+  offerToReceiveVideo: 1
+};
+const stream = canvas.captureStream(60);
 let gainNode
 
 module.exports = () => {
+
 
   function initAudio() {
     const Audioctx = new(window.AudioContext)
@@ -28,7 +36,7 @@ module.exports = () => {
 
   function drawLoop() {
     ctx.drawImage(video, 0, 0);
-
+    //console.log(stream.getVideoTracks())
     requestAnimationFrame(drawLoop)
   }
 
