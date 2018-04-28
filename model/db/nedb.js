@@ -6,7 +6,6 @@ const mkdirp =  require('mkdirp');
 const settings = require('electron-settings');
 
 if(!fs.existsSync(settings.get('workingdir')+'/db/')){
-
   mkdirp(settings.get('workingdir')+'/db/', function(err) {
     console.log(err)
 if(!err){
