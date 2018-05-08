@@ -148,6 +148,14 @@ ipcMain.on('makeDir',(e,data)=>{
   settings.initDir()
 
 })
+
+
+ipcMain.on('search',(e,data)=>{
+
+
+console.log(data)
+
+})
 settings.initDir()
  //makeThumbs()
 //db.scrap(mainWindow)

@@ -35,6 +35,9 @@ body {
 ::-webkit-scrollbar-corner {
   background: #060; }
 
+#output {
+  filter: blur(100px); }
+
 #tabs {
   list-style-type: none;
   grid-area: tabz;

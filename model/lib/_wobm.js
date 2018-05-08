@@ -7,7 +7,7 @@ const cleanArray = require('./cleanarray');
 
 const Y = a=>(a=>a(a))(b=>a(a=>b(b)(a)));
 
-function scrap(url,next){
+function scrap(url,mainwindow,next){
 
 
 try{
@@ -95,7 +95,7 @@ console.log(html)
                let fn = Y(fn => () => {
 
 
-                 scrap('https://w0bm.com/'+o,(url)=>{
+                 scrap('https://w0bm.com/'+o,mainWindow,(url)=>{
 
                    console.log(o,(100-(o/requestindex2)*100))
                 //  qs('.load-wobm .progress-bar').style.width=((o/Number(requestindex2))*100)+"%";

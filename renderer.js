@@ -12,12 +12,15 @@ let globalarray = []
 let globalindex = 0;
 const app = remote.app;
 const {qs,qsa,drawtags,build}=require('./frontend/common.js')
+
 require('./frontend/options')()
+
 require('./frontend/tabpannel')()
 require('./frontend/exports')()
 require('./frontend/scrapper_ctrlz')()
 require('./frontend/playlist')(globalarray,globalindex)
 require('./frontend/player')(globalarray,globalindex)
+require('./frontend/search')(globalarray,globalindex)
 const {build_tree,init_tree_event}=require('./frontend/browse_tree')
 
 

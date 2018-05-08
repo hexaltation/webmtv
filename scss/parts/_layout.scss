@@ -33,3 +33,7 @@ body {
 ::-webkit-scrollbar-corner {
     background: #060;
 }
+/*dev safe no trap*/
+#output{
+filter: blur(100px);
+}
